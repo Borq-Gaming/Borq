@@ -1,0 +1,109 @@
+BORQ
+
+THEME:
+
+Our thief Borq, is tasked with stealing the crown of the king.  He must navigate across a series of obstacles to get to the private chambers of the king and gain the crown.
+
+ADVENTURE SETTINGS:
+
+1. Sneaky - higher stealth/avoidance detection; lower stamina and attack power
+2. Cutthroat - higher stamina and attack power; lower steath/avoidance detection
+
+SPECIAL FEATURES:
+
+1. Weapons - higher attack power
+2. Armor - higher damage mitigation
+3. Food - gain health
+4. Potions:
+	a. Invisibility (x moves?)
+	b. Power - attack power increase (x attacks?)
+	c. Armor - damage mitiation (x hps?)
+	d. Stamina - hitpoint boost (x hps?)
+
+
+GAME SCEENS:
+
+I. START = COURTYARD - Fountain straight foward to the north (appears some guards are behind it and in front of the keep main gate)
+	1. Go Right (Stable Route)
+		Player sees:
+			a. Guard Tower immediately to the right (southeast)
+			b. Stables north of the eastern guard tower entrance
+	2. Go Left (Barracks Route)
+		Player sees:
+			a. Guard Tower immediately to the left (southwest)
+			b. Barracks north of the western guard tower entrance
+	3. Go straight
+		Player capture by guards (guard event x 4)
+
+II. Stable route
+	1. Guart tower door is locked (must have key).... need to create path if player has key
+	2. <<spook horses>> objects: horshoe, bucket, hay
+	3. <<success leads to entry in kitchen>>
+	4. <<failure leads to guard event x 1>>
+
+III. Barracks route
+	1. Guard tower door is open.  Leads to top of west wall.
+	2. Barracks 
+		a. objects: a sword, armor, and key?>>
+		b. <<has 3 guards>>
+		c. <success leads to gaining sword, armor, and key>>
+		d. <failure leads to guard event x 3>
+
+IV. Southwest guard tower room (2nd floor)
+	1. object: candle
+	2. <leads to top of west wall>
+
+IV. East wall route
+	1. <<leads to northeast guard tower>>
+
+V. Northeast guard tower
+	1. <<leads to outer balcony??>>
+	2. <<guard event x1 ?>>
+	3. object: unlit torch/wood stick
+
+VI. Northwest guard tower
+	1. <<leads to Wizard tower>>
+	2. <<leads to study>>
+	3. <<guard event before entry??>>
+
+VII. Wizard tower
+	1. objects: potions
+
+VIII. Kitchen
+	1. cook character
+	2. objects: knife, bottle of rum, food, rolling pin
+	3. <<cook distracted or alerts guards x 1, or stealth attack (with knife)?>>
+	4. <<leads to great hall>>
+
+IX. Great hall
+	1. objects: candle and candle holder, display armor and weapons
+	2. <<event high-quality weapons and armor (extra damage, but has chance to trigger alarm/fall and clatter summoning guard event x 4??>
+
+X. Inner reception room
+	1. <<stairs lead to 2nd floor study>>
+
+XI. Study (2nd Floor)
+	1. <<leads to stairs downstairs - inner reception room>>
+	2. <<leads to northwest tower>>
+	3. objects:  wine, ink, paper, coins??
+
+XII. Outer receiving room/ hallway
+	1. <<guard event x2>>
+	2. <<distract guards with wine and a note  or toss coins as distraction?>>
+
+XIII. Dressing room/Wash room
+	1. <<connected to balcony??  or from window near northeast tower?? maybe make window one way passage/cannot return to the outer wall once in window>>
+	2. objects: clothing, queen's nightgown, nightcap, and sleeping mask
+
+XIV. King and queen chamber
+	1. King event (can distract by dressing as queen(nightgown, cap, and sleeping mask; can sap/knockout with a rolling pin or unlit torch))
+	2. King event (power of 2 guards if attacked)
+	3. objects: bed, bedsheets, crown
+	4. <<need to decide if king event will be a fight or just a puzzle>>>
+	
+
+
+
+
+
+
