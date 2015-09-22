@@ -15,3 +15,15 @@ Route::get('/', function()
 {
 	return View::make('hello');
 });
+
+Route::get('/test', function()
+{
+	$query = "Test Rsponse.";
+	return Response::json($query);
+});
+
+Route::controller('move', 'MoveController');
+Route::controller('take', 'TakeController');
+Route::controller('hit', 'HitController');
+Route::controller('eat', 'EatController');
+Route::controller('use', 'UseController');
