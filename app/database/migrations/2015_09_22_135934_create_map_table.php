@@ -22,7 +22,7 @@ class CreateMapTable extends Migration {
 			$table->string('west');
 			$table->varchar('description');
 			$table->string('objects')->nullable();
-			$table->integer('guard_quantity');
+			$table->string('guard_id');
 
 			$table->softDeletes();
 			$table->timestamps();
