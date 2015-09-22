@@ -18,7 +18,7 @@ Route::get('/', function()
 
 Route::get('/test', function()
 {
-	$query = "Test Rsponse.";
+	$query = ["Test Rsponse"];
 	return Response::json($query);
 });
 
