@@ -1,0 +1,11 @@
+#RealTextbox {
+	position: relative;
+	left: -5000px;
+}
+#textBox {
+	width: 35%;
+	height: 35%;
+	position: relative;
+	margin: auto;
+	top:200px;
+}
