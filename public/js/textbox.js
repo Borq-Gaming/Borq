@@ -13,7 +13,5 @@
 
             $log.debug(response);
         });
-
-        
     }]);
 })();

@@ -65,7 +65,7 @@ class ItemsTableSeeder extends Seeder {
 		]);
 
 		Item::create([
-			'name' => 'potion_stength',
+			'name' => 'potion_strength',
 			'map_id' => $wizardTower->id
 		]);
 
