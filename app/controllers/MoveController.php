@@ -36,6 +36,11 @@ class MoveController extends BaseController {
 		// check if room exisits
 		if ($nextRoom) {
 			$return = $next->description;
+
+			// set as current room
+			$update = User::find($id);
+			$update->player_location_id = $nextRoom;
+			$update->save;
 		} else {
 			$return = "You can not go that way.";
 		}
