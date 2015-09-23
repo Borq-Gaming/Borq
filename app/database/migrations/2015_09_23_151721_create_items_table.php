@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateGuardsTable extends Migration {
+class CreateItemsTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,13 +12,12 @@ class CreateGuardsTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('guards', function(Blueprint $table)
+		Schema::create('items', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->integer('health');
+			$table->string('name')->unique();
 			$table->integer('map_id')->unsigned();
 			$table->foreign('map_id')->references('id')->on('maps');
-
 			$table->timestamps();
 		});
 	}
@@ -31,7 +30,7 @@ class CreateGuardsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('guards');
+		Schema::drop('items');
 	}
 
 }
