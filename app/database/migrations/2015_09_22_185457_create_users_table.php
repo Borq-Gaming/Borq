@@ -1,0 +1,56 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+
+class CreateUsersTable extends Migration {
+
+	/**
+	 * Run the migrations.
+	 *
+	 * @return void
+	 */
+	public function up()
+	{
+		Schema::create('users', function(Blueprint $table)
+		{
+			
+			$table->increments('id');
+			$table->integer('player_location_id')->unsigned();
+			$table->foreign('player_location_id')->references('id')->on('map');
+			$table->integer('health');
+			$table->integer('stealth');
+			$table->integer('weapon')->nullable();
+			$table->integer('armor')->nullable();
+			$table->string('apples')->nullable();
+			$table->string('bread')->nullable();
+			$table->string('sword')->nullable();
+			$table->string('key')->nullable();
+			$table->string('wine')->nullable();
+			$table->string('lantern')->nullable();
+			$table->string('note')->nullable();
+			$table->string('queen_sleeping_clothing')->nullable();
+			$table->string('potion_invisibility')->nullable();
+			$table->string('potion_strength')->nullable();
+			$table->string('potion_regeneration')->nullable();
+			$table->string('crown')->nullable();
+
+			$table->boolean('access_x'); // need to add all the access flags as they are built.  access grants permission to block paths
+
+			$table->softDeletes();
+			$table->timestamps();
+		});
+	}
+
+
+	/**
+	 * Reverse the migrations.
+	 *
+	 * @return void
+	 */
+	public function down()
+	{
+		Schema::drop('users');
+	}
+
+}
