@@ -8,7 +8,7 @@ class Map extends \Eloquent {
 
     public function user()
     {
-        return $this->belongsTo('User'); // setting relationship to game model
+        return $this->belongsTo('User');
     }
 
     public function northMap()
@@ -29,5 +29,10 @@ class Map extends \Eloquent {
     public function westMap()
     {
     	return $this->belongsTo('Map', 'west_map_id');
+    }
+
+    public function items()
+    {
+        return $this->hasMany('Item');
     }
 }
