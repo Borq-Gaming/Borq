@@ -1,5 +1,5 @@
 <?php
 
-class Use extends \Eloquent {
+class Action extends Eloquent {
 	protected $fillable = [];
 }
