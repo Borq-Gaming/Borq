@@ -15,11 +15,13 @@ class DatabaseSeeder extends Seeder {
 		DB::table('maps')->delete();
 		DB::table('uses')->delete();
 		DB::table('guards')->delete();
+		DB::table('items')->delete();
 
-		// $this->call('UsersTableSeeder');
+		// $this->call('UsersTableSeeder'); // review for removal
 		$this->call('MapsTableSeeder');
 		// $this->call('UsesTableSeeder');
-		// $this->call('GuardsTableSeeder');
+		$this->call('GuardsTableSeeder');
+		$this->call('ItemsTableSeeder');
 
 	}
 
