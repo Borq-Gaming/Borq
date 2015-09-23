@@ -19,6 +19,7 @@ class CreateGuardUserTable extends Migration {
 			$table->integer('user_id')->unsigned()->index();
 			$table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 			$table->primary(['guard_id', 'user_id']);
+			$table->integer('health');
 		});
 	}
 

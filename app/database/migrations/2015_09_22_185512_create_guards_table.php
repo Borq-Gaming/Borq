@@ -15,7 +15,7 @@ class CreateGuardsTable extends Migration {
 		Schema::create('guards', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->integer('health');
+			$table->integer('initial_health');
 			$table->integer('map_id')->unsigned();
 			$table->foreign('map_id')->references('id')->on('maps');
 
