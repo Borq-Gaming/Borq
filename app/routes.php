@@ -18,8 +18,9 @@ Route::get('/', function()
 
 Route::get('/test', function()
 {
-	$query = "Test Rsponse.";
+	$query = "Test Response";
 	return Response::json($query);
+
 });
 
 Route::controller('move', 'MoveController');
