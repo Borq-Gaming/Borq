@@ -13,7 +13,7 @@ class MoveController extends BaseController {
 		$direction = strtolower(Input::get("direction"));
 		
 		// find current room in DB
-		$current = User::where("id", $id);
+		$current = User::find($id);
 		$current = $current->player_location_id;
 		
 		// find room in specified direction
