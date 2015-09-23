@@ -101,7 +101,7 @@ class MapsTableSeeder extends Seeder {
 			//determine if we will have a lower floor available to the player
 			'location_name'		=> 'northeast_tower',
 			'display_name'		=> 'North East Tower',
-			'description'		=> 'You have entered the top floor of the northeastern tower. A closed door is to the western side of the chamber.  An open window to the north shows what appears to be the upper floor of the castle.  It seems like there is an open window in the castle as well.  You might be able to make the leap down to it if you felt daring',  
+			'description'		=> 'You have entered the top floor of the northeastern tower. A closed door is to the western side of the chamber.  An open window to the north shows what appears to be the upper floor of the castle.  It seems like there is an open window in the castle as well.  You might be able to make the leap down to it if you felt daring.',  
 		]);
 
 	// North West Tower
@@ -175,7 +175,7 @@ class MapsTableSeeder extends Seeder {
 			//determine if we want to create a balcony room...if so, it is south_map_id
 
 			'location_name'		=> 'outer_receiving',
-			'display_name'		=> 'Outer Receiving Chamber'
+			'display_name'		=> 'Outer Receiving Chamber',
 			'description'		=> 'This august room appears to be an area that grants a more comfortable setting for the king and queen to receive guests.  On the north wall you see a magnificent set of double doors...and a magnificent set of double guards!',
 		]);
 
@@ -183,7 +183,7 @@ class MapsTableSeeder extends Seeder {
 		$kingChamber = Map::create([
 			// may need to add 2 guards here depending on how events are handled?
 			'location_name'		=> 'king_chamber',
-			'display_name'		=> 'King and Queen - Bed Chamber'
+			'display_name'		=> 'King and Queen - Bed Chamber',
 			'description'		=> 'The elegant room that you have just entered has a large bed and beautiful furniture.  Additionally, there is an exquisitely decorated chest next to the bed.  The room appears to be royally occupied...',
 			'objects'			=> 'crown',
 		]);
@@ -312,7 +312,7 @@ class MapsTableSeeder extends Seeder {
 		$kingChamber->south_map_id = $outerReceiving->id;
 		$kingChamber->east_map_id = $dressingRoom->id;
 		$kingChamber->west_map_id = $study->id;
-		$kingChamper->save();
+		$kingChamber->save();
 
 	}
 

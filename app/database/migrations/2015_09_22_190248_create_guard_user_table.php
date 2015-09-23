@@ -14,12 +14,11 @@ class CreateGuardUserTable extends Migration {
 	{
 		Schema::create('guard_user', function(Blueprint $table)
 		{
-			$table->increments('id');
 			$table->integer('guard_id')->unsigned()->index();
 			$table->foreign('guard_id')->references('id')->on('guards')->onDelete('cascade');
 			$table->integer('user_id')->unsigned()->index();
 			$table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-			$table->timestamps();
+			$table->primary(['guard_id', 'user_id']);
 		});
 	}
 

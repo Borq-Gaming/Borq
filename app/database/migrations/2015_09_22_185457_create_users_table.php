@@ -17,7 +17,7 @@ class CreateUsersTable extends Migration {
 			
 			$table->increments('id');
 			$table->integer('player_location_id')->unsigned();
-			$table->foreign('player_location_id')->references('id')->on('map');
+			$table->foreign('player_location_id')->references('id')->on('maps');
 			$table->integer('health');
 			$table->integer('stealth');
 			$table->integer('weapon')->nullable();

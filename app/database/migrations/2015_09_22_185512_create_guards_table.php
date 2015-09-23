@@ -17,7 +17,7 @@ class CreateGuardsTable extends Migration {
 			$table->increments('id');
 			$table->integer('health');
 			$table->integer('guard_location_id')->unsigned();
-			$table->foreign('guard_location_id')->references('id')->on('map');
+			$table->foreign('guard_location_id')->references('id')->on('maps');
 
 			$table->timestamps();
 		});

@@ -25,7 +25,7 @@ class CreateMapsTable extends Migration {
 			$table->foreign('east_map_id')->references('id')->on('maps');
 			$table->integer('west_map_id')->unsigned()->nullable();
 			$table->foreign('west_map_id')->references('id')->on('maps');
-			$table->string('description');
+			$table->text('description');
 			$table->string('objects')->nullable();
 
 			$table->softDeletes();

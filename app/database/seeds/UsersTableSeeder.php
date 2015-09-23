@@ -3,15 +3,15 @@
 // Composer: "fzaninotto/faker": "v1.3.0"
 // use Faker\Factory as Faker;
 
-class GuardsTableSeeder extends Seeder {
+class UsersTableSeeder extends Seeder {
 
 	public function run()
 	{
-	
-			Guard::create([
 
-			]);
-		}
+		User::create([
+
+		]);
+
 	}
 
 }

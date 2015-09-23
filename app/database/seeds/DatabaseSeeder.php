@@ -16,10 +16,10 @@ class DatabaseSeeder extends Seeder {
 		DB::table('uses')->delete();
 		DB::table('guards')->delete();
 
-		$this->call('UsersTableSeeder');
+		// $this->call('UsersTableSeeder');
 		$this->call('MapsTableSeeder');
-		$this->call('UsesTableSeeder');
-		$this->call('GuardsTableSeeder');
+		// $this->call('UsesTableSeeder');
+		// $this->call('GuardsTableSeeder');
 
 	}
 
