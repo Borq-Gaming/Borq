@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateUseTable extends Migration {
+class CreateGuardsTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,14 +12,13 @@ class CreateUseTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('use', function(Blueprint $table)
+		Schema::create('guards', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->string('item_1');
-			$table->string('item_2');
-			$table->varchar('result');
+			$table->integer('health');
+			$table->integer('guard_location_id')->unsigned();
+			$table->foreign('guard_location_id')->references('id')->on('maps');
 
-			$table->softDeletes();
 			$table->timestamps();
 		});
 	}
@@ -32,7 +31,7 @@ class CreateUseTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('use');
+		Schema::drop('guards');
 	}
 
 }

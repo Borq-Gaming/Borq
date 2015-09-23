@@ -11,13 +11,16 @@ class DatabaseSeeder extends Seeder {
 	{
 		Eloquent::unguard();
 
-		DB::table('games')->delete();
-		DB::table('map')->delete();
-		DB::table('use')->delete();
+		DB::table('users')->delete();
+		DB::table('maps')->delete();
+		DB::table('uses')->delete();
+		DB::table('guards')->delete();
 
-		$this->call('GamesTableSeeder');
-		$this->call('MapTableSeeder');
-		$this->call('UseTableSeeder');
+		// $this->call('UsersTableSeeder');
+		$this->call('MapsTableSeeder');
+		// $this->call('UsesTableSeeder');
+		// $this->call('GuardsTableSeeder');
+
 	}
 
 }

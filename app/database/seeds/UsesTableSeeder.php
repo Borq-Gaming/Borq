@@ -3,14 +3,13 @@
 // Composer: "fzaninotto/faker": "v1.3.0"
 // use Faker\Factory as Faker;
 
-class GamesTableSeeder extends Seeder {
+class UsesTableSeeder extends Seeder {
 
 	public function run()
 	{
 
-		Game::create([
+		Use::create([
 			
-			// look at adding code here after Timothy creates his logic
 
 		]);
 	}
