@@ -113,7 +113,7 @@
         }
 
         function ajaxUse(value1, value2) {
-            $http.post("use/" + value).then(function() {
+            $http.post("use/" + value1 + value2).then(function() {
                 $log.info("Info was sent to the server successfully!")
             }, function(response) {
                 $log.error("Ajax request failed for some reason!");

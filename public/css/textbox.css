@@ -1,11 +1,20 @@
+
+body {
+
+	background-color: gray;
+
+
+}
 #RealTextbox {
 	position: relative;
 	left: -5000px;
 }
 #textBox {
-	width: 35%;
-	height: 35%;
-	position: relative;
-	margin: auto;
-	top:200px;
+		width: 40%;
+		position: relative;
+		margin: 25px auto;
+	}
+
+#console {
+	overflow: auto;
 }
