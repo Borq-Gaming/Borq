@@ -14,20 +14,17 @@
 				$('#PastCommands').append($(this).val());
 				$(this).val('');
 				$('#FakeTextbox').text('');
+				userInput();
 			} else {
 				$('#FakeTextbox').html($(this).val());
 			}
 		});
 		$('#RealTextbox').focus();
+
+
 	});
 
-function userInput() {
-	var input = $("#RealTextbox").val();
-	var selectInput = input.split (' ');
-	var firstAction = selectInput[1];
-	var secondAction = selectInput[2];
-	
-}
+
 
 
 

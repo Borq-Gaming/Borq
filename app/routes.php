@@ -23,6 +23,8 @@ Route::get('/test', function()
 
 });
 
+Route::get('start', 'HomeController@startGame');
+
 Route::controller('move', 'MoveController');
 Route::controller('take', 'TakeController');
 Route::controller('hit', 'HitController');
