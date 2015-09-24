@@ -14,10 +14,10 @@
 				$('#PastCommands').append($(this).val());
 				$(this).val('');
 				$('#FakeTextbox').text('');
+				userInput();
 			} else {
 				$('#FakeTextbox').html($(this).val());
 			}
-				userInput();
 		});
 		$('#RealTextbox').focus();
 
