@@ -13,11 +13,11 @@ class MoveController extends BaseController {
 		$direction = strtolower(Input::get("direction"));
 		
 		// find current room in DB
-		$current = User::find($id);
+		$current = User::find($id)->firstOrFail();
 		$current = $current->player_location_id;
 		
 		// find room in specified direction
-		$next = Map::where("id", $current);
+		$next = Map::where("id", $current)->firstOrFail();
 		switch ($direction) {
 			case 'north':
 				$nextRoom = $next->north_map_id;
@@ -38,7 +38,7 @@ class MoveController extends BaseController {
 			$return = $next->description;
 
 			// set as current room
-			$update = User::find($id);
+			$update = User::find($id)->firstOrFail();
 			$update->player_location_id = $nextRoom;
 			$update->save;
 		} else {
