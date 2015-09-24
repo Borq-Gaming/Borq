@@ -83,11 +83,7 @@
         }
 
         function ajaxTake(value) {
-            $http.post("take/item", {
-            user_id: id,
-            take_item: value
-            
-            }).then(function() {
+            $http.post("take/" + value).then(function() {
                 $log.info("Info was sent to the server successfully!")
             }, function(response) {
                 $log.error("Ajax request failed for some reason!");
@@ -97,11 +93,7 @@
         }
 
         function ajaxHit(value) {
-            $http.post("hit/fight", {
-            user_id: id,
-            
-            
-            }).then(function() {
+            $http.post("hit/" + value).then(function() {
                 $log.info("Info was sent to the server successfully!")
             }, function(response) {
                 $log.error("Ajax request failed for some reason!");
@@ -111,12 +103,7 @@
         }
 
         function ajaxEat(value) {
-            $http.post("eat/item", {
-            user_id: id,
-
-            item: value
-            
-            }).then(function() {
+            $http.post("eat/" + value).then(function() {
                 $log.info("Info was sent to the server successfully!")
             }, function(response) {
                 $log.error("Ajax request failed for some reason!");
@@ -126,12 +113,7 @@
         }
 
         function ajaxUse(value1, value2) {
-            $http.post("use/items", {
-            user_id: id,
-            item1: value1,
-            item2: value2
-            
-            }).then(function() {
+            $http.post("use/" + value).then(function() {
                 $log.info("Info was sent to the server successfully!")
             }, function(response) {
                 $log.error("Ajax request failed for some reason!");
