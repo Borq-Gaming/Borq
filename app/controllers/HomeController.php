@@ -32,7 +32,7 @@ class HomeController extends BaseController {
 		$game->save();
 
 		$row = User::where("creation_id", $rand)->firstOrFail();
-		return $row->creation_id;
+		return $row->id;
 	}
 
 }
