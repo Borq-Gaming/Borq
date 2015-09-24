@@ -14,33 +14,42 @@
             $log.debug(response);
         });
 
-        $http.post("textbox.php", {
-            key1: 
-            key2: 
-        }).then(function() {
-            $log.info("Info was sent to the server successfully!")
-        }, function(response) {
-            $log.error("Ajax request failed for some reason!");
+        // $http.post("textbox.php", {
+        //     // key1: 
+        //     // key2: 
+        // }).then(function() {
+        //     $log.info("Info was sent to the server successfully!")
+        // }, function(response) {
+        //     $log.error("Ajax request failed for some reason!");
 
-            $log.debug(response);
-        });
+        //     $log.debug(response);
+        // });
 
-        function determineCommand(command, value, value2 = null) {
-            switch (commmand){
+        function determineCommand(command, value, valueB) {
+        if (!valueB) {
+            valueB = null;
+        }
+
+            switch (command) {
                 case "move":
-                return ajaxMove(value);
+                // return ajaxMove(value);
+                console.log('move');
                 break;
                 case "eat":
-                return ajaxMove(value);
+                // return ajaxEat(value);
+                console.log('eat');
                 break;
                 case "hit":
-                return ajaxMove(value);
+                // return ajaxHit(value);
+                console.log('hit');
                 break;
-                case "use";
-                return ajaxMove(value, value2);
+                case "use":
+                // return ajaxUse(value, valueB);
+                console.log('use');
                 break;
-                case "take";
-                return ajaxMove(value);
+                case "take":
+                // return ajaxTake(value);
+                console.log('take');
                 break;
                 default: "command does not exit";
             }

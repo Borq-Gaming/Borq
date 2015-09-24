@@ -14,11 +14,14 @@
 				$('#PastCommands').append($(this).val());
 				$(this).val('');
 				$('#FakeTextbox').text('');
+				userInput();
 			} else {
 				$('#FakeTextbox').html($(this).val());
 			}
 		});
 		$('#RealTextbox').focus();
+
+
 	});
 
 
