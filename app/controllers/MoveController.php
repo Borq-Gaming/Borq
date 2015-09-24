@@ -53,15 +53,15 @@ class MoveController extends BaseController {
 	{
 		
 	}
-	public function postNorth()
+	public function postSouth()
 	{
 		
 	}
-	public function postNorth()
+	public function postEast()
 	{
 		
 	}
-	public function postNorth()
+	public function postWest()
 	{
 
 	}
