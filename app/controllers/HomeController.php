@@ -32,6 +32,9 @@ class HomeController extends BaseController {
 		$game->save();
 
 		$row = User::where("creation_id", $rand)->firstOrFail();
+
+		Auth::login($game);
+
 		return $row->id;
 	}
 
