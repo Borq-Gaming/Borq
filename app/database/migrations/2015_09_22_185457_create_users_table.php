@@ -36,7 +36,6 @@ class CreateUsersTable extends Migration {
 			$table->string('crown')->nullable();
 
 			$table->boolean('access_x'); // need to add all the access flags as they are built.  access grants permission to block paths
-			$table->integer('creation_id'); 
 
 			$table->softDeletes();
 			$table->timestamps();
