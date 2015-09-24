@@ -34,24 +34,24 @@
 
             switch (command) {
                 case "move":
-                // return ajaxMove(value);
-                console.log('move');
+                return ajaxMove(value);
+                // console.log('move');
                 break;
                 case "eat":
-                // return ajaxEat(value);
-                console.log('eat');
+                return ajaxEat(value);
+                // console.log('eat');
                 break;
                 case "hit":
-                // return ajaxHit(value);
-                console.log('hit');
+                return ajaxHit(value);
+                // console.log('hit');
                 break;
                 case "use":
-                // return ajaxUse(value, valueB);
-                console.log('use');
+                return ajaxUse(value, valueB);
+                // console.log('use');
                 break;
                 case "take":
-                // return ajaxTake(value);
-                console.log('take');
+                return ajaxTake(value);
+                // console.log('take');
                 break;
                 default: "command does not exit";
             }
@@ -73,11 +73,7 @@
         }
 
         function ajaxMove(value) {
-            $http.post("move/direction", {
-            user_id: id,
-            direction: value
-            
-            }).then(function() {
+            $http.post("move/" + value).then(function() {
                 $log.info("Info was sent to the server successfully!")
             }, function(response) {
                 $log.error("Ajax request failed for some reason!");
@@ -117,6 +113,7 @@
         function ajaxEat(value) {
             $http.post("eat/item", {
             user_id: id,
+
             item: value
             
             }).then(function() {
