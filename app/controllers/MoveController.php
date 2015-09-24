@@ -48,4 +48,26 @@ class MoveController extends BaseController {
 		// return result
 		return Response::json($return);
 	}
+
+	public function postNorth()
+	{
+		
+	}
+	public function postSouth()
+	{
+		
+	}
+	public function postEast()
+	{
+		
+	}
+	public function postWest()
+	{
+
+	}
+
+	public function _missing()
+	{
+
+	}
 }
