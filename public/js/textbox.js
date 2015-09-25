@@ -17,7 +17,7 @@
 					if ($('#PastCommands').html() != '') {
 						$('#PastCommands').append('<br />');
 					}
-					$('#PastCommands').append($(this).val());
+					$('#PastCommands').append("> " + $(this).val());
 					$(this).val('');
 					$('#FakeTextbox').text('');
 				} else {
@@ -45,7 +45,7 @@
 		if (!valueB) {
 			valueB = null;
 		}
-			switch (command) {
+			switch (command.toLowerCase()) {
 				case "move":
 					return ajaxMove(value);
 				break;
@@ -61,7 +61,7 @@
 				case "take":
 					return ajaxTake(value);
 				break;
-				default: "command does not exit";
+				default: setTimeout(function(){display("Command not valid.")}, 100);
 			}
 		}
 
