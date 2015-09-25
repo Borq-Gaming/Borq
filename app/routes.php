@@ -23,6 +23,11 @@ Route::get('/test', function()
 
 });
 
+Route::get('/console', function()
+{
+	return View::make('console');
+});
+
 Route::get('start', 'HomeController@startGame');
 
 Route::controller('move', 'MoveController');
