@@ -14,7 +14,7 @@
     <title>@yield('title')</title>
 </head>
 
-<body>
+<body ng-app="textBox">
 
     <main class="container">
     @yield('content')
