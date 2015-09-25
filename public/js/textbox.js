@@ -27,36 +27,6 @@
             $('#RealTextbox').focus();
         });
 
-        function determineCommand(command, value, valueB) {
-        if (!valueB) {
-            valueB = null;
-        }
-
-            switch (command) {
-                case "move":
-                return ajaxMove(value);
-                // console.log('move');
-                break;
-                case "eat":
-                return ajaxEat(value);
-                // console.log('eat');
-                break;
-                case "hit":
-                return ajaxHit(value);
-                // console.log('hit');
-                break;
-                case "use":
-                return ajaxUse(value, valueB);
-                // console.log('use');
-                break;
-                case "take":
-                return ajaxTake(value);
-                // console.log('take');
-                break;
-                default: "command does not exit";
-            }
-        }
-
         function userInput() {
             console.log("testtest");
             var input = $("#RealTextbox").val();
@@ -68,13 +38,42 @@
                 determineCommand(firstAction, secondAction, selectInput[3])
             } else {
                 determineCommand(firstAction, secondAction);
-
             }
         }
 
+        function determineCommand(command, value, valueB) {
+        if (!valueB) {
+            valueB = null;
+        }
+            switch (command) {
+                case "move":
+                	return ajaxMove(value);
+                break;
+                case "eat":
+                	return ajaxEat(value);
+                break;
+                case "hit":
+                	return ajaxHit(value);
+                break;
+                case "use":
+                	return ajaxUse(value, valueB);
+                break;
+                case "take":
+                	return ajaxTake(value);
+                break;
+                default: "command does not exit";
+            }
+        }
+
+        function display(text) {
+        	$('#PastCommands').append('<br />');
+        	$('#PastCommands').append(text);
+        }
+
         function ajaxMove(value) {
-            $http.post("move/" + value).then(function() {
-                $log.info("Info was sent to the server successfully!")
+            $http.post("move/" + value).then(function(data) {
+                $log.info("Info was sent to the server successfully!");
+                display(data.data);
             }, function(response) {
                 $log.error("Ajax request failed for some reason!");
 
