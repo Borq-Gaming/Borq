@@ -23,9 +23,13 @@
 	background-color: #4D4D4D;
 }*/
 
+#textBox {
+	height: 250px;
+}
+
 #console {
 		width: 40%;
-		height:30%;
+		height:40%;
 		color: white;
 		position: relative;
 		margin: 25px auto;
@@ -33,6 +37,7 @@
 		background: #4D4D4D;
 		overflow: auto;
 		top: 260px;
+
 }
 
 
@@ -52,13 +57,12 @@
 
 
 
-#PastCommands {
-	height: 200px;
-	
-}
+
 
 .container {
-	border: 
+	background-image: url("/images/StoneWall-background.jpg"); 
+	position: relative;
+	top: 200px; 
 }
 
 

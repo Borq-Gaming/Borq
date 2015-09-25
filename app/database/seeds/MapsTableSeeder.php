@@ -191,13 +191,12 @@ class MapsTableSeeder extends Seeder {
 
 	// TODO:  Determine if we need window destination to end the game
 	// Exit Window
-		// $window = Map::create([
-		// 	// determine if this will need to be included or just handled progarmatically
+		$window = Map::create([
+			'location_name'		=> 'window',
+			'display_name'		=> 'Window',
+			'description'		=> 'Window escape - the end...', // write content
 
-		// 	'location_name'		=> 'window',
-		// 	'description'		=> 'Window escape - the end...', // write content
-
-		// ]);
+		]);
 
 // Separator between map description and objects arrays and the navigation
 	
@@ -265,9 +264,9 @@ class MapsTableSeeder extends Seeder {
 		$northEastTower->save();
 
 	// North West Tower Navigation
-		$northWestTower->north_map_id = $wizardTower->id;
 		$northWestTower->south_map_id = $westWall->id;
 		$northWestTower->east_map_id = $outerReceiving->id;
+		$northWestTower->west_map_id = $wizardTower->id;
 		$northWestTower->save();
 
 	// Kitchen Navigation
@@ -287,17 +286,16 @@ class MapsTableSeeder extends Seeder {
 		$receptionRoom->save();
 
 	// Wizard Tower Navigation
-		$wizardTower->south_map_id = $northWestTower->id;
+		$wizardTower->east_map_id = $northWestTower->id;
 		$wizardTower->save();
 
 	// Dressing Room Navigation
-		$dressingRoom->north_map_id = $kingChamber->id;
+		$dressingRoom->west_map_id = $kingChamber->id;
 		$dressingRoom->save();
 
 	// Study Navigation
-		$study->north_map_id = $kingChamber->id;
-		$study->south_map_id = $outerReceiving->id;
-		$study->west_map_id = $receptionRoom->id;
+		$study->east_map_id = $kingChamber->id;
+		$study->south_map_id = $receptionRoom->id;
 		$study->save();
 
 	// Outer Receiving Navigation
@@ -308,7 +306,7 @@ class MapsTableSeeder extends Seeder {
 
 	// King Chamber Navigation
 		// determine if we want to have the user have access to the window // maybe just capture crown and end game // if window ends game, it is north_map_id
-		// $kingChamber->north_map_id = $window->id;
+		$kingChamber->north_map_id = $window->id;
 		$kingChamber->south_map_id = $outerReceiving->id;
 		$kingChamber->east_map_id = $dressingRoom->id;
 		$kingChamber->west_map_id = $study->id;

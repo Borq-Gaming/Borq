@@ -6,11 +6,13 @@
 
 @section('content')
 
-<div class="container">
+
 	<div class="col-md-9 col-md-offet-2" id='console'>
 	
 		<div ng-controller="textController">
+
 			<div id="textBox">
+			
 				<div id="PastCommands"></div>
 					<span id="FakeTextbox"></span><span id="Score">__</span>
 						<input type="text" id="RealTextbox" />
@@ -23,7 +25,7 @@
 </div> -->
 	
 
-</div>
+
 
 @stop
 
