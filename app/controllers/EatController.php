@@ -7,10 +7,76 @@ class EatController extends BaseController {
 	 *
 	 * @return Response
 	 */
-	public function postFood($item)
+	public function postFood()
 	{
+		$food = strtolower(Input::get("food"));
+
 		// check if item is edible
-		// add appropiet HP to player
+		if ($this->canEat($food)) {
+			// fetch health
+			$currentHp = User::firstOrFail();
+			$currentHp = $currentHp->health;
+			if ($currentHp > 8) {
+				$newHp = 10;
+				$this->updateHp($newHp);
+				$difference = 10 - $currentHp;
+				$return = ucfirst($food) . " eaten. +" . $difference . " HP";
+				$this->clearItem($food);
+			} else {
+				$newHp = $currentHp + 2;
+				$this->updateHp($newHp);
+				$return = ucfirst($food) . " eaten. +2 HP";
+			}
+		} else {
+			if ($food == "apple") {
+				$return = "You don't have an apple."; 
+			} else if ($food == "bread") {
+				$return = "You don't have any bread."; 
+			} else {
+				$return = "You can't eat that.";
+			}
+		}
+
 		// return result
+		return Response::json($return);
+	}
+
+	public function canEat($food)
+	{
+		if ($food == "apple" || $food == "bread") {
+			if ($this->hasItem($food)) {
+				return true;
+			} else {
+				return false;
+			}
+		} else {
+			return false;
+		}
+	}
+
+	public function updateHp($newHp)
+	{
+		$update = User::firstOrFail();
+		$update->health = $newHp;
+		$update->save();
+	}
+
+	public function hasItem($food)
+	{
+		$inventory = User::firstOrFail();
+		$thing = $inventory->$food;
+
+		if ($thing) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	public function clearItem($food)
+	{
+		$update = User::firstOrFail();
+		$update->$food = NULL;
+		$update->save();
 	}
 }
