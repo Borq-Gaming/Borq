@@ -1,7 +1,6 @@
 "use strict";
 
 (function() {
-<<<<<<< HEAD
 	var app = angular.module("textBox", []);
 
 	app.controller("textController", ["$log", "$http", function($log, $http) {
