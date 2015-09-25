@@ -1,22 +1,65 @@
 
-body {
+/*body {
 
 	background-color: gray;
-
-
-}
+}*/
 #RealTextbox {
 	position: relative;
 	left: -5000px;
 }
-#textBox {
+/*#FakeTextbox {
 		width: 40%;
 		color: white;
 		position: relative;
 		margin: 25px auto;
 		background: #4D4D4D;
-	}
+	}*/
+
+
+
+/*.container {
+	position: relative;
+	top: 130px;
+	background-color: #4D4D4D;
+}*/
 
 #console {
-	overflow: auto;
+		width: 40%;
+		height:30%;
+		color: white;
+		position: relative;
+		margin: 25px auto;
+		margin-left: 300px;
+		background: #4D4D4D;
+		overflow: auto;
+		top: 260px;
 }
+
+
+
+/*#items {
+	position: relative;
+	top: 100px;
+	margin-left: 300px;
+	margin: auto;
+}
+
+#health {
+	position: relative;
+	top: 200px;
+	left: 100px;
+	/*margin: auto;*/
+
+
+
+#PastCommands {
+	height: 200px;
+	
+}
+
+.container {
+	border: 
+}
+
+
+
