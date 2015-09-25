@@ -29,14 +29,14 @@
 
 #console {
 		/*width: 40%;*/
-		height:40%;
+		height:50%;
 		color: white;
 		position: relative;
-		/*margin: 25px auto;*/
+		margin: 25px auto;
 		/*margin-left: 300px;*/
 		background: #4D4D4D;
 		overflow: auto;
-		top: 260px;
+		top: 100px;
 
 }
 
