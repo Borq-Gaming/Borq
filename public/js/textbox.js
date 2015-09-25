@@ -81,9 +81,12 @@
             });
         }
 
-        function ajaxTake(value) {
-            $http.post("take/" + value).then(function() {
-                $log.info("Info was sent to the server successfully!")
+        function ajaxTake(item) {
+            $http.post("take/take", {
+            	thing: item
+            }).then(function(data) {
+                $log.info("Info was sent to the server successfully!");
+                display(data.data);
             }, function(response) {
                 $log.error("Ajax request failed for some reason!");
 
@@ -93,7 +96,7 @@
 
         function ajaxHit(value) {
             $http.post("hit/" + value).then(function() {
-                $log.info("Info was sent to the server successfully!")
+                $log.info("Info was sent to the server successfully!");
             }, function(response) {
                 $log.error("Ajax request failed for some reason!");
 
@@ -103,7 +106,7 @@
 
         function ajaxEat(value) {
             $http.post("eat/" + value).then(function() {
-                $log.info("Info was sent to the server successfully!")
+                $log.info("Info was sent to the server successfully!");
             }, function(response) {
                 $log.error("Ajax request failed for some reason!");
 
@@ -113,7 +116,7 @@
 
         function ajaxUse(value1, value2) {
             $http.post("use/" + value).then(function() {
-                $log.info("Info was sent to the server successfully!")
+                $log.info("Info was sent to the server successfully!");
             }, function(response) {
                 $log.error("Ajax request failed for some reason!");
 
