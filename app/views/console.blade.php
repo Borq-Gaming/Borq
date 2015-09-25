@@ -7,14 +7,14 @@
 @section('content')
 
 
-	<div class="col-md-9 col-md-offet-2" id='console'>
+	<div class="col-md-4 col-md-offet-4" id='console'>
 	
 		<div ng-controller="textController">
 
 			<div id="textBox">
 			
 				<div id="PastCommands"></div>
-					<span id="FakeTextbox"></span><span id="Score">__</span>
+					<span id="FakeTextbox"></span><span id="Score"> >> </span>
 						<input type="text" id="RealTextbox" />
 			</div>
 		</div>

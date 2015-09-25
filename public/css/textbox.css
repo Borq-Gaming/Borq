@@ -60,8 +60,8 @@
 
 
 .container {
-	background-image: url("/images/StoneWall-background.jpg"); 
-	position: relative;
+	background-image: url("/images/"); 
+	/*position: relative;*/
 	top: 200px; 
 }
 
