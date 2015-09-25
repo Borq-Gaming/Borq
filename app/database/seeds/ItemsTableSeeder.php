@@ -27,12 +27,12 @@ class ItemsTableSeeder extends Seeder {
 			'map_id' => $barracks->id
 		]);
 
-	// Southeast Tower Item
-		$southEastTower = Map::where('location_name', 'southeast_tower_inner')->firstOrFail();
+	// Southwest Tower Item
+		$southWestTower = Map::where('location_name', 'southwest_tower_outer')->firstOrFail();
 		
 		Item::create([
 			'name' => 'lantern',
-			'map_id' => $southEastTower->id
+			'map_id' => $southWestTower->id
 		]);
 
 	// Kitchen Items
