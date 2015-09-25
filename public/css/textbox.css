@@ -28,12 +28,12 @@
 }
 
 #console {
-		width: 40%;
+		/*width: 40%;*/
 		height:40%;
 		color: white;
 		position: relative;
-		margin: 25px auto;
-		margin-left: 300px;
+		/*margin: 25px auto;*/
+		/*margin-left: 300px;*/
 		background: #4D4D4D;
 		overflow: auto;
 		top: 260px;
