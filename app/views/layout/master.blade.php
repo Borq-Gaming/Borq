@@ -16,7 +16,7 @@
 
 <body ng-app="textBox">
 
-    <main class="container">
+    <main class="container-fluid">
     @yield('content')
     </main>
 

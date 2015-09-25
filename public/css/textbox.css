@@ -59,10 +59,10 @@
 
 
 
-.container {
-	background-image: url("/images/"); 
+.container-fluid {
+	/*background-image: url("/images/rock-background.png"); */
 	/*position: relative;*/
-	top: 200px; 
+	/*top: 200px; */
 }
 
 
