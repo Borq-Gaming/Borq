@@ -11,8 +11,10 @@ body {
 }
 #textBox {
 		width: 40%;
+		color: white;
 		position: relative;
 		margin: 25px auto;
+		background: #4D4D4D;
 	}
 
 #console {

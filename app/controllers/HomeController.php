@@ -19,7 +19,12 @@ class HomeController extends BaseController {
 	{
 		return View::make('hello');
 	}
-
+	
+	public function showConsole()
+	{
+		return View::make('console');
+	}
+	
 	public function startGame() 
 	{
 		$game = new User();

@@ -11,7 +11,7 @@
 		<div ng-controller="textController">
 			<div id="textBox">
 				<div id="PastCommands"></div>
-					<span id="FakeTextbox"></span><span id="Score">_</span>
+					<span id="FakeTextbox"></span><span id="Score">>> </span>
 						<input type="text" id="RealTextbox" />
 			</div>
 		</div>
