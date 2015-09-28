@@ -21,8 +21,8 @@
 
 				<div id="location" class="col-sm-4">
 					<label class="form-group" name="location">Location</label>
-					{{-- <input value="{{{ $maps->display_name }}}" disabled> --}}
-				{{-- 	<h5>{{{ $maps->display_name }}}</h5> --}}
+					<input id="current_location" disabled>
+
 				</div>
 
 				<div id="items" class="col-sm-4">
@@ -45,10 +45,12 @@
 				</div>
 			</div> <!-- end of console -->
 		</div>
-
 	</div>
 </div>
 
+<div class="form-group">
+	 <a href="{{{ action('HomeController@startGame') }}}"><button class="btn btn-success" >START</button></a>
+ </div>
 
 <!-- <div class="row">
 <button type="button" class="btn btn-lg btn-primary" disabled="disabled" id="health">Health</button>
@@ -65,12 +67,22 @@
 
 <script>
 
+// Display current location
+$.get('/move').done(function(data) {
+	console.log(data);
+	// $('#current_location').val(data.display_name);
+
+});
+
+
 // healthbar
-  $(function() {
-    $( "#health_bar" ).progressbar({
-      value: 37
-    });
-  });
+
+$.get('/home').done(function(data) {
+	console.log(data);
+    // $( "#health_bar" ).progressbar({
+    //   value: 37
+});
+// });
 </script>
 
 @stop

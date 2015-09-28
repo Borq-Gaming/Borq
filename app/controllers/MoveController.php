@@ -13,7 +13,7 @@ class MoveController extends BaseController {
 	public function findCurrent()
 	{
 		// find current room in DB
-		$current = User::firstOrFail();
+		$current = User::firstOrFail(); // Auth::user();
 		$current = $current->player_location_id;
 		
 		// find room in specified direction
@@ -43,6 +43,13 @@ class MoveController extends BaseController {
 	{
 		$room = Map::where("id", $id)->firstOrFail();
 		return $room->description;
+	}
+
+	public function getIndex()
+	{
+		$currentMap = $this->findCurrent();
+
+		return Response::json($currentMap);
 	}
 
 	public function postNorth()

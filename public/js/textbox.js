@@ -74,6 +74,7 @@
 		function ajaxMove(value) {
 			$http.post("move/" + value).then(function(data) {
 				$log.info("Info was sent to the server successfully!");
+				console.log(data);
 				display(data.data);
 			}, function(response) {
 				$log.error("Ajax request failed for some reason!");

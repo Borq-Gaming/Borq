@@ -14,15 +14,11 @@ class HomeController extends BaseController {
 	|	Route::get('/', 'HomeController@showWelcome');
 	|
 	*/
-
-	public function showWelcome()
-	{
-		return View::make('hello');
-	}
 	
 	public function showConsole()
 	{
 		return View::make('console');
+
 	}
 	
 	public function startGame() 
@@ -35,6 +31,13 @@ class HomeController extends BaseController {
 		$game->save();
 
 		Auth::login($game);
+	}
+
+	public function getHealth()
+	{
+		$health = Auth::user();
+
+		return Response::json($health);
 	}
 
 }
