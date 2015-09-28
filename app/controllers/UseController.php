@@ -13,9 +13,9 @@ class UseController extends BaseController {
 		$item2 = strtolower(Input::get("item2"));
 
 		// check if object 1 is in backpack
-		// check if object 2 is usable (hit use db and check  col 2)
-		// check if objects are compatible
 		if ($this->doesHave($item1)) {
+			// check if object 2 is usable (hit use db and check  col 2)
+			// check if objects are compatible
 			if ($this->canUse($item2)) {
 				$action = Action::where("item_1", $item1)->firstOrFail();
 				$actionLocation = $action->location;
