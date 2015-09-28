@@ -14,7 +14,7 @@ class EatController extends BaseController {
 		// check if item is edible
 		if ($this->canEat($food)) {
 			// fetch health
-			$currentHp = User::firstOrFail();
+			$currentHp = Auth::user();
 			$currentHp = $currentHp->health;
 			if ($currentHp > 8) {
 				$newHp = 10;
@@ -56,14 +56,14 @@ class EatController extends BaseController {
 
 	public function updateHp($newHp)
 	{
-		$update = User::firstOrFail();
+		$update = Auth::user();
 		$update->health = $newHp;
 		$update->save();
 	}
 
 	public function hasItem($food)
 	{
-		$inventory = User::firstOrFail();
+		$inventory = Auth::user();
 		$thing = $inventory->$food;
 
 		if ($thing) {
@@ -75,7 +75,7 @@ class EatController extends BaseController {
 
 	public function clearItem($food)
 	{
-		$update = User::firstOrFail();
+		$update = Auth::user();
 		$update->$food = NULL;
 		$update->save();
 	}
