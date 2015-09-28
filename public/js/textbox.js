@@ -68,7 +68,7 @@
 		function display(text) {
 			$('#PastCommands').append('<br />');
 			$('#PastCommands').append(text);
-			$("#console").scrollTop($("#console")[0].scrollHeight);
+			$("#textBox").scrollTop($("#textBox")[0].scrollHeight);
 		}
 
 		function ajaxMove(value) {
