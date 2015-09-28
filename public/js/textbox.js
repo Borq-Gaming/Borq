@@ -35,6 +35,7 @@
 			var firstAction = selectInput[0];
 			var secondAction = selectInput[1];
 			if (selectInput[2]) {
+				console.log(selectInput);
 				determineCommand(firstAction, secondAction, selectInput[3])
 			} else {
 				determineCommand(firstAction, secondAction);
@@ -121,8 +122,12 @@
 		}
 
 		function ajaxUse(value1, value2) {
-			$http.post("use/" + value).then(function() {
+			$http.post("use/stuff", {
+				item1: value1,
+				item2: value2
+			}).then(function(data) {
 				$log.info("Info was sent to the server successfully!");
+				display(data.data);
 			}, function(response) {
 				$log.error("Ajax request failed for some reason!");
 

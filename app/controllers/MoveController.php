@@ -13,7 +13,9 @@ class MoveController extends BaseController {
 	public function findCurrent()
 	{
 		// find current room in DB
-		$current = User::firstOrFail(); // Auth::user();
+
+		$current = Auth::user();
+
 		$current = $current->player_location_id;
 		
 		// find room in specified direction
@@ -28,7 +30,7 @@ class MoveController extends BaseController {
 			$return = $this->fetchDescription($this->nextRoom);
 
 			// set as current room
-			$update = User::firstOrFail();
+			$update = Auth::user();
 			$update->player_location_id = $this->nextRoom;
 			$update->save();
 		} else {
