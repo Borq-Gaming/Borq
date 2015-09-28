@@ -97,8 +97,9 @@
 		}
 
 		function ajaxHit(value) {
-			$http.post("hit/" + value).then(function() {
+			$http.post("hit/" + value).then(function(data) {
 				$log.info("Info was sent to the server successfully!");
+				display(data.data);
 			}, function(response) {
 				$log.error("Ajax request failed for some reason!");
 

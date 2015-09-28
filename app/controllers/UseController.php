@@ -13,28 +13,32 @@ class UseController extends BaseController {
 		$item2 = strtolower(Input::get("item2"));
 
 		// check if object 1 is in backpack
-		// check if object 2 is usable (hit use db and check  col 2)
-		// check if objects are compatible
-		if ($this->doesHave($item1) && $this->canUse($item2)) {
-			$action = Action::where("item_1", $item1)->firstOrFail();
-			$actionLocation = $action->location;
+		if ($this->doesHave($item1)) {
+			// check if object 2 is usable (hit use db and check  col 2)
+			// check if objects are compatible
+			if ($this->canUse($item2)) {
+				$action = Action::where("item_1", $item1)->firstOrFail();
+				$actionLocation = $action->location;
 
-			//get player location
-			$current = Auth::user();
-			$current = $current->player_location_id;
+				//get player location
+				$current = Auth::user();
+				$current = $current->player_location_id;
 
-			if ($actionLocation == $current) {
-				$return = $action->result;
+				if ($actionLocation == $current) {
+					$return = $action->result;
+					$this->clearItem($item1);
+				} else {
+					$return = "You can't do that here.";
+				}
 			} else {
-				$return = "You can't do that here.";
+				$return = "You can not use those item together";
 			}
-			$return = $action->result;
 		} else {
-			$return = "You can not use those item together";
+			$return = "You don't have the " . $item1;
 		}
 
 		// return results
-			return Response::json($return);
+		return Response::json($return);
 	}
 
 	public function doesHave($item)
@@ -70,4 +74,12 @@ class UseController extends BaseController {
 			return false;
 		}
 	}
+
+	public function clearItem($item)
+	{
+		$update = Auth::user();
+		$update->$item = NULL;
+		$update->save();
+	}
 }
+
