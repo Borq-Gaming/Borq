@@ -31,6 +31,7 @@
 	margin: 25px auto;
 	background-color: #4D4D4D;
 	overflow: auto;
+	position: relative;
 }
 
 /*#items {
