@@ -2,27 +2,11 @@
 
 class HomeController extends BaseController {
 
-	/*
-	|--------------------------------------------------------------------------
-	| Default Home Controller
-	|--------------------------------------------------------------------------
-	|
-	| You may wish to use controllers instead of, or in addition to, Closure
-	| based routes. That's great! Here is an example controller method to
-	| get you started. To route to this controller, just add the route:
-	|
-	|	Route::get('/', 'HomeController@showWelcome');
-	|
-	*/
-
-	public function showWelcome()
-	{
-		return View::make('hello');
-	}
 	
 	public function showConsole()
 	{
 		return View::make('console');
+
 	}
 	
 	public function startGame() 
@@ -94,6 +78,22 @@ class HomeController extends BaseController {
 		$guard8->map_id = 19;
 		$guard8->save();
 
+	}
+
+	public function getHealth()
+	{
+		$player = Auth::user();
+		$health = $player->health;
+
+		return Response::json($health);
+	}
+
+
+	public function getItem()
+	{
+		$items = Auth::user();
+
+		return Response::json($items);
 	}
 
 }

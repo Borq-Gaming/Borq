@@ -8,7 +8,7 @@
 	height: 340px;
 	max-width: 640px;
 	padding: 20px;
-	background-image: url("/images/rock-background.jpg"); 
+	background-image: url("/images/light-stone-background.jpeg"); 
 	background-repeat: repeat;
 	border: outset 3px;
 	border-radius: 4px;
@@ -33,27 +33,31 @@
 	overflow: auto;
 	position: relative;
 }
+	
+#items {
 
-/*#items {
-	position: relative;
-	top: 100px;
-	margin-left: 300px;
-	margin: auto;
+	background: #D8DFE6;
+	height: 35px;
+	margin: 0px 5px 0px 5px;
+	border: ridge;
+
 }
 
-#health {
-	position: relative;
-	top: 200px;
-	left: 100px;
-	/*margin: auto;*/
+#current_location {
+	border: ridge;
+	width:70%;
+}
 
 
+.ui-widget-header {
+	background: #00FF00;
+	border: 1px solid #DDDDDD;
+	color: #333333;
+	font-weight: bold;
+}
 
-
-
-main {
-	/*position: relative;*/
-	/*top: 200px; */
+.btn {
+	
 }
 
 

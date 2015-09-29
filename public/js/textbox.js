@@ -75,6 +75,7 @@
 		function ajaxMove(value) {
 			$http.post("move/" + value).then(function(data) {
 				$log.info("Info was sent to the server successfully!");
+				console.log(data);
 				display(data.data);
 			}, function(response) {
 				$log.error("Ajax request failed for some reason!");
@@ -120,6 +121,13 @@
 				$log.debug(response);
 			});
 		}
+
+		// $http.get('home/health').then(function(data) {
+		// 	console.log('health = ' + data); // <== just a debug test
+		//     $( "#health_bar" ).progressbar({
+		//       val: data
+		//     });
+		//   });
 
 		function ajaxUse(value1, value2) {
 			$http.post("use/stuff", {
