@@ -55,7 +55,7 @@ class MapsTableSeeder extends Seeder {
 
 			'location_name'		=> 'castle_entrance',
 			'display_name'  	=> "Castle Entrance",
-			'description'		=> 'You enter an area with 2 burly guards, in front of the massive doors to the castle.  The guards look dangerour. You think that they will attack if they see you.',
+			'description'		=> 'You enter an area with 2 burly guards, in front of the massive doors to the castle.  The guards look dangerous. You think that they will attack if they see you.',
 		]);
 
 	// Stables

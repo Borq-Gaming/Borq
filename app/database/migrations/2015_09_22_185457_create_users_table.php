@@ -20,7 +20,6 @@ class CreateUsersTable extends Migration {
 			$table->foreign('player_location_id')->references('id')->on('maps');
 			$table->integer('health');
 			$table->integer('stealth');
-			$table->integer('weapon')->nullable();
 			$table->integer('armor')->nullable();
 			$table->string('apples')->nullable();
 			$table->string('bread')->nullable();
@@ -29,7 +28,7 @@ class CreateUsersTable extends Migration {
 			$table->string('wine')->nullable();
 			$table->string('lantern')->nullable();
 			$table->string('note')->nullable();
-			$table->string('queen_sleeping_clothing')->nullable();
+			$table->string('gown')->nullable();
 			$table->string('potion_invisibility')->nullable();
 			$table->string('potion_strength')->nullable();
 			$table->string('potion_regeneration')->nullable();
