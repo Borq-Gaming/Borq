@@ -15,12 +15,12 @@ class HitController extends BaseController {
 	public $guardHp;
 	public $guardIndex;
 
-	public function postGaurd() 
+	public function postGuard() 
 	{
 		$game = Auth::user();
 		if ($game->map->guards->toArray()) {
 			$this->fetchStats();
-			$this->fetchGaurd();
+			$this->fetchGuard();
 			$return = $this->fight();
 			$this->update();
 		} else {
@@ -60,41 +60,8 @@ class HitController extends BaseController {
 	{
 		$game = Auth::user();
 
-		// if room has 3 gaurds
-		if ($game->map->gaurds[2]) {
-			// if gaurd 1 is alive
-			if ($game->map->gaurds[0] > 0) {
-				$this->gaurdIndex = 0;
-				$this->gaurdIndex = $game->map->gaurds[0]->health;
-			// if gaurd 2 is alive
-			} else if ($game->map->gaurds[1] > 0) {
-				$this->gaurdIndex = 1;
-				$this->gaurdIndex = $game->map->gaurds[1]->health;
-			// if gaurd 3 is alive
-			} else if ($game->map->gaurds[2] > 0) {
-				$this->gaurdIndex = 2;
-				$this->gaurdIndex = $game->map->gaurds[2]->health;
-			}
-			
-		// if room has 2 gaurds
-		} else if($game->map->gaurds[1]) {
-			// if gaurd 1 is alive
-			if ($game->map->gaurds[0] > 0) {
-				$this->gaurdIndex = 0;
-				$this->gaurdIndex = $game->map->gaurds[0]->health;
-			// if gaurd 2 is alive
-			} else if ($game->map->gaurds[1] > 0) {
-				$this->gaurdIndex = 1;
-				$this->gaurdIndex = $game->map->gaurds[1]->health;
-			}
-
-		// if room has 1 gaurd	
-		} else if($game->map->gaurds[0]) {
-			if ($game->map->gaurds[0] > 0) {
-				$this->gaurdIndex = 0;
-				$this->gaurdIndex = $game->map->gaurds[0]->health;
-			}
-		}
+		$guard = $game->map->guards()->where('health', '>', 0)->first();
+		$this->guardHp = $guard->health;
 	}
 
 	public function fight()
@@ -102,7 +69,7 @@ class HitController extends BaseController {
 		//player rngs
 		$hit = mt_rand(1, 100);
 		$rng = mt_rand(1, 67);
-		$rng = $rng/100;
+		$rng = ($rng/100) + 0.67;
 
 		//guard rngs
 		$guard = mt_rand(1, 3);
@@ -110,43 +77,41 @@ class HitController extends BaseController {
 		// player hit
 		if ($hit > 30) {
 			$damage = (((3 * $this->sword) * $this->armor) * $rng);
+			$thing = $damage;
 			$damage = round($damage);
 
-			$return1 = "You hit the guard for " . $damage . " damage." . PHP_EOL;
+			$return1 = "You hit the guard for " . $damage . " damage. ";
 		} else {
 			$damage = 0;
 
-			$return1 = "You miss the guard." . PHP_EOL;
+			$return1 = "You miss the guard. ";
 		}
 
 		//guard hit
-		if ($guard = 1) {
+		if ($guard == 1) {
 			$guardDamage = 1;
 		} else {
 			$guardDamage = 2;
 		}
 
-		$return2 = "The guard hits you for " . $gaurdDamage . " damage. ";
+		$return2 = "The guard hits you for " . $guardDamage . " damage. ";
 
 		$this->guardHp = $this->guardHp - $damage;
 		$this->hp = $this->hp - $guardDamage;
 
-		return $return1 . $return1;
+		return $return1 . $return2;
 	}
 
+	//
 	public function update()
 	{
 		$update = Auth::user();
 		$update->health = $this->hp;
-		$update->map->guards[$this->index]->health = $this->guardHp;
 		$update->save();
 
-	}
+		$guard = $update->map->guards()->where('health', '>', 0)->first();
+		$guard->health = $this->guardHp;
+		$guard->save();
 
-		// RNG for hit/miss
-		// if hit, simulate hit
-		// RNG for counter attack hit/miss
-		// if hit, simulate hit
-		// save new HP to DB
-		// return results
+	}
 }
