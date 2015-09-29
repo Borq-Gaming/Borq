@@ -13,6 +13,7 @@ class MapsTableSeeder extends Seeder {
 
 			'location_name'		=> 'courtyard',
 			'display_name'		=> 'Castle Courtyard',
+			'image'				=> 'images/areas/courtyard.png',
 			'description'		=> 'You see the courtyard before you.  To your right (east) is a tower entrance.  To your left (west) is another tower entrance.  North of you, you see a well, and beyond that, the entrance to the castle.  It looks like the entrance is guarded by 2 soldiers.',
 		]);
 
@@ -22,6 +23,7 @@ class MapsTableSeeder extends Seeder {
 			//block the east route (door) unless player has key
 			'location_name'		=> 'southeast_tower_outer',
 			'display_name'		=> 'South East Guard Tower',
+			'image'				=> 'images/areas/tower.png',
 			'description'		=> 'You see a door to the guard tower.  You hear horses nickering from the direction of the building to the north.  You think that building must be the stables.',
 		]);
 
@@ -30,6 +32,7 @@ class MapsTableSeeder extends Seeder {
 
 			'location_name'		=> 'southeast_tower_inner',
 			'display_name'		=> 'Inner Chamber - South East Tower',
+			'image'				=> 'images/areas/se-inner-tower.png',
 			'description'		=> 'Inside the tower, you see a spiraling staircase leading upward.  It appears that this staircase leads to the top of the wall.',
 			'objects'			=> 'lantern',
 		]);
@@ -39,6 +42,7 @@ class MapsTableSeeder extends Seeder {
 
 			'location_name'		=> 'southwest_tower_outer',
 			'display_name'		=> 'South West Guard Tower',
+			'image'				=> 'images/areas/tower.png',
 			'description'		=> 'From your location, you see a door to the guard tower on the west side of the courtyard.  North of your location, you see a fortified building.  You hear some clamoring sounds and raucous voices.  The sounds make you think there might be some soldiers in the building',
 		]);
 
@@ -47,6 +51,7 @@ class MapsTableSeeder extends Seeder {
 
 			'location_name'		=> 'southwest_tower_inner',
 			'display_name'		=> 'Inner Chamber - South West Tower',
+			'image'				=> 'images/areas/sw-inner-tower.png',
 			'description'		=> 'Inside the southwest tower, you see a spiraling stair going upward.  You think it might lead to the rampart on the western side of the castle.',
 		]);
 
@@ -55,6 +60,7 @@ class MapsTableSeeder extends Seeder {
 
 			'location_name'		=> 'castle_entrance',
 			'display_name'  	=> "Castle Entrance",
+			'image'				=> 'images/areas/castle-entrance.png',
 			'description'		=> 'You enter an area with 2 burly guards, in front of the massive doors to the castle.  The guards look dangerous. You think that they will attack if they see you.',
 		]);
 
@@ -64,6 +70,7 @@ class MapsTableSeeder extends Seeder {
 			// will need to determine if northeast guard tower can be entered from ground.  locked by default
 			'location_name'		=> 'stables',
 			'display_name'		=> 'Stables',
+			'image'				=> 'images/areas/stables.png',
 			'description'		=> 'You have entered a stable with several horses.  They look at you warily while they feed on hay.',
 		]);
 
@@ -74,6 +81,7 @@ class MapsTableSeeder extends Seeder {
 			// will need to look at removing the guards if a distraction event is written	
 			'location_name'		=> 'barracks',
 			'display_name'		=> 'Barracks',
+			'image'				=> 'images/areas/barracks.png',
 			'description'		=> 'You see that this is the barracks for the castle.  It appears to house the soldiers for the king.  You see a sword and a set of armor near one of the bunks that would be a good match.  You also see something gleaming on a nearby table.',
 			'objects'			=> 'sword, armor, key',
 		]);
@@ -83,6 +91,7 @@ class MapsTableSeeder extends Seeder {
 
 			'location_name'		=> 'east_wall',
 			'display_name'		=> 'East Wall Ramparts',
+			'image'				=> 'images/areas/east-rampart.png',
 			'description'		=> 'You see the eastern rampart stretching out to the north.  The rampart connects to another guard tower to the north.  The castle walls are on either side of you.  It looks like a steep and dangerous drop on either side.',
 
 		]);
@@ -92,6 +101,7 @@ class MapsTableSeeder extends Seeder {
 
 			'location_name'		=> 'west_wall',
 			'display_name'		=> 'West Wall Ramparts',
+			'image'				=> 'images/areas/west-rampart.png',
 			'description'		=> 'You look upon the ramparts of the western wall.  To the north you see another guard tower, as well as a strange looking tower a bit farther north and west.  The strange tower appears to be connected to the guard tower.  On either side of the wall is a steep drop that would be almost certain death.',
 		]);
 
@@ -101,6 +111,7 @@ class MapsTableSeeder extends Seeder {
 			//determine if we will have a lower floor available to the player
 			'location_name'		=> 'northeast_tower',
 			'display_name'		=> 'North East Tower',
+			'image'				=> 'images/areas/ne-inner-tower.png',
 			'description'		=> 'You have entered the top floor of the northeastern tower. A closed door is to the western side of the chamber.  An open window to the north shows what appears to be the upper floor of the castle.  It seems like there is an open window in the castle as well.  You might be able to make the leap down to it if you felt daring.',  
 		]);
 
@@ -109,6 +120,7 @@ class MapsTableSeeder extends Seeder {
 
 			'location_name'		=> 'northwest_tower',
 			'display_name'		=> 'North West Tower',
+			'image'				=> 'images/areas/nw-inner-tower.png',
 			'description'		=> 'You are in the north west tower of the castle.  A small archway and bridge extend to the north west.  These lead to another strange tower. It also appears you are not alone...',
 		]);
 
@@ -117,6 +129,7 @@ class MapsTableSeeder extends Seeder {
 
 			'location_name'		=> 'kitchen',
 			'display_name'		=> 'Kitchen',
+			'image'				=> 'images/areas/kitchen.png',
 			'description'		=> 'Entering the room, you find yourself in the castle kitchen.  Heavenly smells linger, but you have apparently missed the meal.  There are a few items left over, however...',
 			'objects'			=> 'apple, bread',
 		]);
@@ -126,6 +139,7 @@ class MapsTableSeeder extends Seeder {
 
 			'location_name'		=> 'great_hall',
 			'display_name'		=> 'Great Hall',
+			'image'				=> 'images/areas/greathall.png',
 			'description'		=> 'You are in a magnificent room that includes an impressive throne, beautiful tapestries, and trophies of the king.  The king seems to know this. All the items are securely fastened to walls, floor, and furniture.  You sigh...',
 		]);
 
@@ -136,6 +150,7 @@ class MapsTableSeeder extends Seeder {
 			// west route = stairwell leading up to the 2nd floor
 			'location_name'		=> 'reception_room',
 			'display_name'		=> 'Reception Room',
+			'image'				=> 'images/areas/reception.png',
 			'description'		=> 'You enter a lavishly appointed room.  The king must have vast wealth!  In the north corner of the room, you notice a set of stairs leading upward.  One thing you notice is a full bottle on one of the tables...',
 			'objects'			=> 'wine',
 
@@ -146,6 +161,7 @@ class MapsTableSeeder extends Seeder {
 
 			'location_name'		=> 'wizard_tower',
 			'display_name' 		=> 'Wizard Tower',
+			'image'				=> 'images/areas/wizard.png',
 			'description'		=> 'In this arcane room, you notice a vast array of stange and exotic items.  You are afraid to even touch them, but a few bottles draw your eye...',
 			'objects'			=> 'potion_invisibility, potion_strength, potion_regeneration',
 		]);
@@ -157,6 +173,7 @@ class MapsTableSeeder extends Seeder {
 			// can not return to the window in the northeast tower
 			'location_name'		=> 'dressing_room',
 			'display_name'		=> 'Dressing and Wash Room',
+			'image'				=> 'images/areas/dressing.png',
 			'description'		=> 'You find yourself in the king and queens dressing chamber.  It also has a wash room.  There are many fabulous garments hung in the closet.  A sleeping gown of the queen gives you an idea...',
 			'objects'			=> 'queen_sleeping_clothing',
 		]);
@@ -166,6 +183,7 @@ class MapsTableSeeder extends Seeder {
 
 			'location_name'		=> 'study',
 			'display_name'		=> 'Study',
+			'image'				=> 'images/areas/study.png',
 			'description'		=> 'Upon entering this room, you notice that it is filled with books, writing material, and comfortable furnature.  A set of stairs leads down.  Seeing the writing material gives you an idea...',
 			'objects'			=> 'note',
 		]);
@@ -176,6 +194,7 @@ class MapsTableSeeder extends Seeder {
 
 			'location_name'		=> 'outer_receiving',
 			'display_name'		=> 'Outer Receiving Chamber',
+			'image'				=> 'images/areas/receiving.png',
 			'description'		=> 'This august room appears to be an area that grants a more comfortable setting for the king and queen to receive guests.  On the north wall you see a magnificent set of double doors...and a magnificent set of double guards!',
 		]);
 
@@ -184,6 +203,7 @@ class MapsTableSeeder extends Seeder {
 			// may need to add 2 guards here depending on how events are handled?
 			'location_name'		=> 'king_chamber',
 			'display_name'		=> 'King and Queen - Bed Chamber',
+			'image'				=> 'images/areas/bedroom.png',
 			'description'		=> 'The elegant room that you have just entered has a large bed and beautiful furniture.  Additionally, there is an exquisitely decorated chest next to the bed.  The room appears to be royally occupied...',
 			'objects'			=> 'crown',
 		]);
@@ -193,6 +213,7 @@ class MapsTableSeeder extends Seeder {
 	// Exit Window
 		$window = Map::create([
 			'location_name'		=> 'window',
+			'image'				=> 'images/areas/window-exit.png',
 			'display_name'		=> 'Window',
 			'description'		=> 'Window escape - the end...', // write content
 
