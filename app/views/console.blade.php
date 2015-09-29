@@ -2,6 +2,7 @@
 
 @section('style')
 <link rel="stylesheet" href="/css/textbox.css">
+
 @stop
 
 @section('content')
@@ -67,6 +68,13 @@
 <script src="/js/textbox.js"></script>
 
 <script>
+// $.get('home/health').done(function(data) {
+// 			console.log('health = ' + data); // <== just a debug test
+// 		    $( "#health_bar" ).progressbar({
+// 		      value: 10,
+// 		      max:10
+// 		    });
+// 		  });
 $('#RealTextbox').keyup(function(e) {
 	var code = (e.keyCode ? e.keyCode : e.which);
 	// Enter key
@@ -80,9 +88,17 @@ $('#RealTextbox').keyup(function(e) {
 		$.get('home/health').done(function(data) {
 			console.log('health = ' + data); // <== just a debug test
 		    $( "#health_bar" ).progressbar({
-		      val: data
+		    	value: 10,
+		    	max: 10
 		    });
 		  });
+
+
+
+
+
+
+
 // Items Display
 	// var items = ['sword', 'armor', 'key', 'lantern', 'apple', 'bread', 'wine', 'potion_invisibility', 'potion_strength', 'potion_regeneration', 'gown', 'note', 'crown']
 	// items.forEach(function (element, index, array){
@@ -90,6 +106,7 @@ $('#RealTextbox').keyup(function(e) {
 	// 		$('#items').append("<img src='/image' + element + '.png'/>");
 	// 	}
 	} // end of keyup listener
+
 });
 </script>
 

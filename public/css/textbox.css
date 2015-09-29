@@ -47,8 +47,13 @@
 	border: ridge;
 }
 
-#health {
-	
-	
+
+.ui-widget-header {
+	background: #00FF00;
+	border: 1px solid #DDDDDD;
+	color: #333333;
+	font-weight: bold;
 }
+
+
 
