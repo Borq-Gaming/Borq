@@ -14,7 +14,7 @@
 Route::get('/', 'HomeController@showConsole');
 
 
-Route::get('start', 'HomeController@startGame');
+Route::get('/start', 'HomeController@startGame');
 
 Route::controller('move', 'MoveController');
 Route::controller('take', 'TakeController');

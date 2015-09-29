@@ -69,12 +69,11 @@
 
 <script>
 $.get('home/health').done(function(data) {
-			console.log('health = ' + data); // <== just a debug test
-		    $( "#health_bar" ).progressbar({
-		      value: 5,
-		      max:10
-		    });
-		  });
+	console.log('health = ' + data); // <== just a debug test
+	$( "#health_bar" ).progressbar({
+	  value: data * 10,
+	});
+	});
 $('#RealTextbox').keyup(function(e) {
 	var code = (e.keyCode ? e.keyCode : e.which);
 	// Enter key
@@ -98,12 +97,12 @@ $('#RealTextbox').keyup(function(e) {
 			});
 		});
 // Health Display
-		$.get('home/health').done(function(data) {
-			console.log('health = ' + data); // <== just a debug test
-		    $( "#health_bar" ).progressbar({
-		      value: data * 10
-		    });
-		  });
+		// $.get('home/health').done(function(data) {
+		// 	console.log('health = ' + data); // <== just a debug test
+		//     $( "#health_bar" ).progressbar({
+		//       value: data * 10
+		//     });
+		//   });
 
 
 // Items Display
