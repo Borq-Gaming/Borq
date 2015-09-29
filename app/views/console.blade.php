@@ -50,10 +50,7 @@
 </div>
 
 
-<!-- <div class="row">
-<button type="button" class="btn btn-lg btn-primary" disabled="disabled" id="health">Health</button>
-<button type="button" class="btn btn-lg btn-primary" disabled="disabled" id="items">Items</button>
-</div> -->
+
 	
 
 
