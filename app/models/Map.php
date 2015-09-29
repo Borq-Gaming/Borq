@@ -6,9 +6,9 @@ class Map extends \Eloquent {
 
 	use SoftDeletingTrait;
 
-    public function user()
+    public function users()
     {
-        return $this->belongsTo('User');
+        return $this->hasMany('User');
     }
 
     public function northMap()
@@ -39,5 +39,10 @@ class Map extends \Eloquent {
     public function actions()
     {
         return $this->hasMany('Action');
+    }
+
+    public function guards()
+    {
+        return $this->hasMany('Guard');
     }
 }

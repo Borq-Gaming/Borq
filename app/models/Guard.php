@@ -3,8 +3,8 @@
 class Guard extends \Eloquent {
 	protected $fillable = [];
 
-	public function maps()
+	public function map()
     {
-        return $this->hasMany('Map'); // setting relation of Foreign Key to Map->location
+        return $this->belongsTo('Map'); // setting relation of Foreign Key to Map->location
     }
 }
