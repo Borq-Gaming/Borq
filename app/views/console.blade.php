@@ -73,15 +73,18 @@ $('#RealTextbox').keyup(function(e) {
 	// Enter key
 	if(code == 13) {
 
-
-// Location Display
+	// Display Functions
 		$.get('move/index').done(function(data) {
 			console.log(data);	
+			// Display Name
 			$('#current_location').val(data.display_name);
 
-			var items = data.objects;
-			console.log(items);
+			// Background Image Display
 
+
+
+			// Item Icon Display
+			var items = data.objects;
 			var items_array = items.split(', ');
 
 			items_array.forEach(function (element, index, array) {
@@ -91,6 +94,7 @@ $('#RealTextbox').keyup(function(e) {
 				$('#items').append("");
 				$('#items').append('<img src="' + image_path + ' " width="25px" height="25px"/> &nbsp;');
 			});
+
 		});
 
 // Health Display

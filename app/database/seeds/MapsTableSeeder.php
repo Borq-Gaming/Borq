@@ -13,6 +13,7 @@ class MapsTableSeeder extends Seeder {
 
 			'location_name'		=> 'courtyard',
 			'display_name'		=> 'Castle Courtyard',
+			'image'				=> 'images/areas/courtyard.png',
 			'description'		=> 'You see the courtyard before you.  To your right (east) is a tower entrance.  To your left (west) is another tower entrance.  North of you, you see a well, and beyond that, the entrance to the castle.  It looks like the entrance is guarded by 2 soldiers.',
 		]);
 
@@ -22,6 +23,7 @@ class MapsTableSeeder extends Seeder {
 			//block the east route (door) unless player has key
 			'location_name'		=> 'southeast_tower_outer',
 			'display_name'		=> 'South East Guard Tower',
+			'image'				=> 'images/areas/tower.png',
 			'description'		=> 'You see a door to the guard tower.  You hear horses nickering from the direction of the building to the north.  You think that building must be the stables.',
 		]);
 
@@ -30,6 +32,7 @@ class MapsTableSeeder extends Seeder {
 
 			'location_name'		=> 'southeast_tower_inner',
 			'display_name'		=> 'Inner Chamber - South East Tower',
+			'image'				=> 'images/areas/east-inner-tower.png',
 			'description'		=> 'Inside the tower, you see a spiraling staircase leading upward.  It appears that this staircase leads to the top of the wall.',
 			'objects'			=> 'lantern',
 		]);
@@ -39,6 +42,7 @@ class MapsTableSeeder extends Seeder {
 
 			'location_name'		=> 'southwest_tower_outer',
 			'display_name'		=> 'South West Guard Tower',
+			'image'				=> 'images/areas/tower.png',
 			'description'		=> 'From your location, you see a door to the guard tower on the west side of the courtyard.  North of your location, you see a fortified building.  You hear some clamoring sounds and raucous voices.  The sounds make you think there might be some soldiers in the building',
 		]);
 
@@ -47,6 +51,7 @@ class MapsTableSeeder extends Seeder {
 
 			'location_name'		=> 'southwest_tower_inner',
 			'display_name'		=> 'Inner Chamber - South West Tower',
+			'image'				=> 'images/areas/west-inner-tower.png',
 			'description'		=> 'Inside the southwest tower, you see a spiraling stair going upward.  You think it might lead to the rampart on the western side of the castle.',
 		]);
 
