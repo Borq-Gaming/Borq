@@ -2,6 +2,7 @@
 
 @section('style')
 <link rel="stylesheet" href="/css/textbox.css">
+
 @stop
 
 @section('content')
@@ -67,7 +68,13 @@
 <script src="/js/textbox.js"></script>
 
 <script>
-
+$.get('home/health').done(function(data) {
+			console.log('health = ' + data); // <== just a debug test
+		    $( "#health_bar" ).progressbar({
+		      value: 10,
+		      max:10
+		    });
+		  });
 $('#RealTextbox').keyup(function(e) {
 	var code = (e.keyCode ? e.keyCode : e.which);
 	// Enter key
@@ -80,8 +87,6 @@ $('#RealTextbox').keyup(function(e) {
 			$('#current_location').val(data.display_name);
 
 			// Background Image Display
-
-
 
 			// Item Icon Display
 			var items = data.objects;
@@ -96,7 +101,6 @@ $('#RealTextbox').keyup(function(e) {
 			});
 
 		});
-
 // Health Display
 		$.get('home/health').done(function(data) {
 			console.log('health = ' + data); // <== just a debug test
@@ -117,7 +121,6 @@ $('#RealTextbox').keyup(function(e) {
 
 	} // end of keyup listener
 });
-
 </script>
 
 @stop

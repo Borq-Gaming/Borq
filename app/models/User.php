@@ -25,9 +25,13 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	 */
 	protected $hidden = array('password', 'remember_token');
 
-	public function maps()
+	public function map()
     {
-        return $this->hasMany('Map'); // setting relation of Foreign Key to Map->location
+        return $this->belongsTo('Map', 'player_location_id'); // setting relation of Foreign Key to Map->location
     }
 
+    public function guards()
+    {
+    	return $this->belongsToMany('Guard');
+    }
 }
