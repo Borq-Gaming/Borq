@@ -122,6 +122,13 @@
 			});
 		}
 
+		// $http.get('home/health').then(function(data) {
+		// 	console.log('health = ' + data); // <== just a debug test
+		//     $( "#health_bar" ).progressbar({
+		//       val: data
+		//     });
+		//   });
+
 		function ajaxUse(value1, value2) {
 			$http.post("use/stuff", {
 				item1: value1,
