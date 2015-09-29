@@ -1,7 +1,6 @@
 "use strict";
 
 (function() {
-<<<<<<< HEAD
 	var app = angular.module("textBox", []);
 
 	app.controller("textController", ["$log", "$http", function($log, $http) {
@@ -18,7 +17,7 @@
 					if ($('#PastCommands').html() != '') {
 						$('#PastCommands').append('<br />');
 					}
-					$('#PastCommands').append($(this).val());
+					$('#PastCommands').append("> " + $(this).val());
 					$(this).val('');
 					$('#FakeTextbox').text('');
 				} else {
@@ -36,6 +35,7 @@
 			var firstAction = selectInput[0];
 			var secondAction = selectInput[1];
 			if (selectInput[2]) {
+				console.log(selectInput);
 				determineCommand(firstAction, secondAction, selectInput[3])
 			} else {
 				determineCommand(firstAction, secondAction);
@@ -46,7 +46,7 @@
 		if (!valueB) {
 			valueB = null;
 		}
-			switch (command) {
+			switch (command.toLowerCase()) {
 				case "move":
 					return ajaxMove(value);
 				break;
@@ -62,18 +62,20 @@
 				case "take":
 					return ajaxTake(value);
 				break;
-				default: "command does not exit";
+				default: setTimeout(function(){display("Command not valid.")}, 100);
 			}
 		}
 
 		function display(text) {
 			$('#PastCommands').append('<br />');
 			$('#PastCommands').append(text);
+			$("#textBox").scrollTop($("#textBox")[0].scrollHeight);
 		}
 
 		function ajaxMove(value) {
 			$http.post("move/" + value).then(function(data) {
 				$log.info("Info was sent to the server successfully!");
+				console.log(data);
 				display(data.data);
 			}, function(response) {
 				$log.error("Ajax request failed for some reason!");
@@ -96,8 +98,9 @@
 		}
 
 		function ajaxHit(value) {
-			$http.post("hit/" + value).then(function() {
+			$http.post("hit/" + value).then(function(data) {
 				$log.info("Info was sent to the server successfully!");
+				display(data.data);
 			}, function(response) {
 				$log.error("Ajax request failed for some reason!");
 
@@ -120,8 +123,12 @@
 		}
 
 		function ajaxUse(value1, value2) {
-			$http.post("use/" + value).then(function() {
+			$http.post("use/stuff", {
+				item1: value1,
+				item2: value2
+			}).then(function(data) {
 				$log.info("Info was sent to the server successfully!");
+				display(data.data);
 			}, function(response) {
 				$log.error("Ajax request failed for some reason!");
 

@@ -1,69 +1,76 @@
+body {
+	background-image: url('/images/hallway-2-opac.png');
+}
 
-/*body {
+.label {
+	color: white;
+	font-size: 1.2em;
+}
 
-	background-color: gray;
-}*/
 #RealTextbox {
 	position: relative;
 	left: -5000px;
 }
-/*#FakeTextbox {
-		width: 40%;
-		color: white;
-		position: relative;
-		margin: 25px auto;
-		background: #4D4D4D;
-	}*/
 
+#console_outer {
 
+	height: 340px;
+	max-width: 640px;
+	padding: 20px;
+	background-image: url("/images/light-stone-background.jpeg"); 
+	background-repeat: repeat;
+	border: outset 3px;
+	border-radius: 4px;
+}
 
-/*.container {
-	position: relative;
-	top: 130px;
-	background-color: #4D4D4D;
-}*/
+#text_wrapper {
+	height: 300px;
+	max-width: 600px;
+	background-color: #000;
+	border: inset 3px;
+	border-radius: 4px;
+}
 
 #textBox {
 	height: 250px;
-}
-
-#console {
-		width: 40%;
-		height:40%;
-		color: white;
-		position: relative;
-		margin: 25px auto;
-		margin-left: 300px;
-		background: #4D4D4D;
-		overflow: auto;
-		top: 260px;
-
-}
-
-
-
-/*#items {
+	font-family: monaco sans-serif;
+	color: white;
+	min-width: 300px;
+	max-width: 500px;
+	margin: 25px auto;
+	background-color: #000;
+	overflow: auto;
 	position: relative;
-	top: 100px;
-	margin-left: 300px;
-	margin: auto;
+}
+
+#location {
+	margin-bottom: 10px;
+
+
+}
+	
+#item_label {
+	margin-top: 10px;
+	padding-top: 5px;
+}
+
+#items {
+
+	background-color: white;
+	padding-top: 3px;
+	height: 35px;
+	margin: 0px 1px 0px 3px;
+	border: ridge;
+	max-width: 640px;
+
+}
+
+#current_location {
+	border: ridge;
 }
 
 #health {
-	position: relative;
-	top: 200px;
-	left: 100px;
-	/*margin: auto;*/
-
-
-
-
-
-.container {
-	background-image: url("/images/StoneWall-background.jpg"); 
-	position: relative;
-	top: 200px; 
+	
+	
 }
-
-
 

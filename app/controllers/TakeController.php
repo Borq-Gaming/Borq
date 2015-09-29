@@ -17,7 +17,7 @@ class TakeController extends BaseController {
 				$return = "You already have that.";
 			} else {
 				// add object to backpack
-				$update = User::firstOrFail();
+				$update = Auth::user();
 				$update->$item = true;
 				$update->save();
 
@@ -53,7 +53,7 @@ class TakeController extends BaseController {
 	public function isRoom($item)
 	{
 		// player location
-		$currentRoom = User::firstOrFail();
+		$currentRoom = Auth::user();
 		$currentRoom = $currentRoom->player_location_id;
 		$itemRoom = Item::where("name", $item)->firstOrFail();
 		$itemRoom = $itemRoom->map_id;
@@ -68,7 +68,7 @@ class TakeController extends BaseController {
 	public function doesHave($item)
 	{
 		// player location
-		$inventory = User::firstOrFail();
+		$inventory = Auth::user();
 		$thing = $inventory->$item;
 
 		if ($thing) {

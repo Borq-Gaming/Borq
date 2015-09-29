@@ -35,4 +35,9 @@ class Map extends \Eloquent {
     {
         return $this->hasMany('Item');
     }
+
+    public function actions()
+    {
+        return $this->hasMany('Action');
+    }
 }
