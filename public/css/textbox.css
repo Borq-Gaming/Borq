@@ -1,10 +1,19 @@
+body {
+	background-image: url('/images/hallway-2-opac.png');
+}
+
+.label {
+	color: white;
+	font-size: 1.2em;
+}
+
 #RealTextbox {
 	position: relative;
 	left: -5000px;
 }
 
 #console_outer {
-	margin-top: 5%;
+
 	height: 340px;
 	max-width: 640px;
 	padding: 20px;
@@ -17,7 +26,7 @@
 #text_wrapper {
 	height: 300px;
 	max-width: 600px;
-	background-color: #4D4D4D;
+	background-color: #000;
 	border: inset 3px;
 	border-radius: 4px;
 }
@@ -29,17 +38,30 @@
 	min-width: 300px;
 	max-width: 500px;
 	margin: 25px auto;
-	background-color: #4D4D4D;
+	background-color: #000;
 	overflow: auto;
 	position: relative;
 }
+
+#location {
+	margin-bottom: 10px;
+
+
+}
 	
+#item_label {
+	margin-top: 10px;
+	padding-top: 5px;
+}
+
 #items {
 
-	background: #D8DFE6;
+	background-color: white;
+	padding-top: 3px;
 	height: 35px;
-	margin: 0px 5px 0px 5px;
+	margin: 0px 1px 0px 3px;
 	border: ridge;
+	max-width: 640px;
 
 }
 

@@ -16,12 +16,12 @@
 
 			<div class="row">
 				<div id="location" class="col-sm-7">
-					<label for="location">Location</label></br>
+					<label class="label" id="location_label" for="location">Location</label></br>
 					<input id="current_location" disabled>
 				</div>
 
 				<div id="health" class="col-sm-4">
-					<label  for="health">Health</label>
+					<label class="label" for="health">Health</label>
 					<div id="health_bar"></div>
 				</div>
 
@@ -32,7 +32,7 @@
 			<div class='row'>
 				<div class='form-group col-sm-12'>
 					<div name="items" for="items">
-						<label class="form-group" name="items">Inventory</label>
+						<label class="label" class="form-group" id="item_label" name="items">Inventory</label>
 						<div id='items'>
 						</div>
 					</div>
@@ -78,28 +78,40 @@ $('#RealTextbox').keyup(function(e) {
 		$.get('move/index').done(function(data) {
 			console.log(data);	
 			$('#current_location').val(data.display_name);
+
+			var items = data.objects;
+			console.log(items);
+
+			var items_array = items.split(', ');
+
+			items_array.forEach(function (element, index, array) {
+		
+				var image_path = '/images/' + element + '.png';
+				console.log(image_path);
+				$('#items').append("");
+				$('#items').append('<img src="' + image_path + ' " width="25px" height="25px"/> &nbsp;');
+			});
 		});
 
 // Health Display
 		$.get('home/health').done(function(data) {
 			console.log('health = ' + data); // <== just a debug test
 		    $( "#health_bar" ).progressbar({
-		      val: data
+		      value: data * 10
 		    });
 		  });
 
 
 // Items Display
-	// var items = ['sword', 'armor', 'key', 'lantern', 'apple', 'bread', 'wine', 'potion_invisibility', 'potion_strength', 'potion_regeneration', 'gown', 'note', 'crown']
+		// $.get('home/items').done(function(data) {
+		// 	console.log(data);
+		// 	// var items = ['sword', 'armor', 'key', 'lantern', 'apple', 'bread', 'wine', 'potion_invisibility', 'potion_strength', 'potion_regeneration', 'gown', 'note', 'crown']
 
-	// items.forEach(function (element, index, array){
-	// 	if (data.element) {
-	// 		$('#items').append("<img src='/image' + element + '.png'/>");
-	// 	}
+
+		// 	});
+		// }); 
 
 	} // end of keyup listener
-
-
 });
 
 </script>

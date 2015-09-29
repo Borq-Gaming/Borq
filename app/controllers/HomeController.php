@@ -30,7 +30,7 @@ class HomeController extends BaseController {
 	}
 
 
-	public function getItem()
+	public function getItems()
 	{
 		$items = Auth::user();
 
