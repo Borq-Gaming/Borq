@@ -87,6 +87,8 @@ $('#RealTextbox').keyup(function(e) {
 			$('#current_location').val(data.display_name);
 
 			// Background Image Display
+			var background_image = 'url(/' + data.image + ')';
+			$('body').css('background-image', background_image);
 
 			// Item Icon Display
 			var items = data.objects;
@@ -101,23 +103,14 @@ $('#RealTextbox').keyup(function(e) {
 			});
 
 		});
-// Health Display
+
+	// Health Display
 		$.get('home/health').done(function(data) {
 			console.log('health = ' + data); // <== just a debug test
 		    $( "#health_bar" ).progressbar({
 		      value: data * 10
 		    });
 		  });
-
-
-// Items Display
-		// $.get('home/items').done(function(data) {
-		// 	console.log(data);
-		// 	// var items = ['sword', 'armor', 'key', 'lantern', 'apple', 'bread', 'wine', 'potion_invisibility', 'potion_strength', 'potion_regeneration', 'gown', 'note', 'crown']
-
-
-		// 	});
-		// }); 
 
 	} // end of keyup listener
 });
