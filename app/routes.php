@@ -11,23 +11,8 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('hello');
-});
+Route::get('/', 'HomeController@showConsole');
 
-
-Route::get('/test', function()
-{
-	$query = "Test Response";
-	return Response::json($query);
-
-});
-
-Route::get('/console', function()
-{
-	return View::make('console');
-});
 
 Route::get('start', 'HomeController@startGame');
 
@@ -36,3 +21,5 @@ Route::controller('take', 'TakeController');
 Route::controller('hit', 'HitController');
 Route::controller('eat', 'EatController');
 Route::controller('use', 'UseController');
+
+Route::controller('home', 'HomeController');
