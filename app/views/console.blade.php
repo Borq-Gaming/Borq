@@ -71,7 +71,7 @@
 $.get('home/health').done(function(data) {
 			console.log('health = ' + data); // <== just a debug test
 		    $( "#health_bar" ).progressbar({
-		      value: 10,
+		      value: 5,
 		      max:10
 		    });
 		  });
