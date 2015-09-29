@@ -56,11 +56,9 @@
 	</div>
 </div>
 
-
 <div class="form-group">
 	 <a href="{{{ action('HomeController@startGame') }}}"><button class="btn btn-success" >START</button></a>
 </div>
-
 
 
 @stop
@@ -69,19 +67,15 @@
 <script src="/js/textbox.js"></script>
 
 <script>
-
 $('#RealTextbox').keyup(function(e) {
 	var code = (e.keyCode ? e.keyCode : e.which);
 	// Enter key
 	if(code == 13) {
-
-
 // Location Display
 		$.get('move/index').done(function(data) {
 			console.log(data);	
 			$('#current_location').val(data.display_name);
 		});
-
 // Health Display
 		$.get('home/health').done(function(data) {
 			console.log('health = ' + data); // <== just a debug test
@@ -89,21 +83,14 @@ $('#RealTextbox').keyup(function(e) {
 		      val: data
 		    });
 		  });
-
-
 // Items Display
 	// var items = ['sword', 'armor', 'key', 'lantern', 'apple', 'bread', 'wine', 'potion_invisibility', 'potion_strength', 'potion_regeneration', 'gown', 'note', 'crown']
-
 	// items.forEach(function (element, index, array){
 	// 	if (data.element) {
 	// 		$('#items').append("<img src='/image' + element + '.png'/>");
 	// 	}
-
 	} // end of keyup listener
-
-
 });
-
 </script>
 
 @stop
