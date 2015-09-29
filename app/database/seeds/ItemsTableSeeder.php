@@ -78,7 +78,7 @@ class ItemsTableSeeder extends Seeder {
 		$dressingRoom = Map::where('location_name', 'dressing_room')->firstOrFail();
 
 		Item::create([
-			'name' => 'queen_sleeping_clothing',
+			'name' => 'gown',
 			'map_id' => $dressingRoom->id
 		]);	
 

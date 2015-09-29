@@ -7,7 +7,7 @@
     <meta name="csrf-token" content="{{{ csrf_token() }}}">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     <link rel="stylesheet" type="text/css" href="/css/textbox.css">
   
     @yield('style')
