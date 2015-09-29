@@ -2,6 +2,7 @@
 
 @section('style')
 <link rel="stylesheet" href="/css/textbox.css">
+
 @stop
 
 @section('content')
@@ -67,13 +68,17 @@
 <script src="/js/textbox.js"></script>
 
 <script>
-
+$.get('home/health').done(function(data) {
+			console.log('health = ' + data); // <== just a debug test
+		    $( "#health_bar" ).progressbar({
+		      value: 10,
+		      max:10
+		    });
+		  });
 $('#RealTextbox').keyup(function(e) {
 	var code = (e.keyCode ? e.keyCode : e.which);
 	// Enter key
 	if(code == 13) {
-
-
 // Location Display
 		$.get('move/index').done(function(data) {
 			console.log(data);	
@@ -92,7 +97,6 @@ $('#RealTextbox').keyup(function(e) {
 				$('#items').append('<img src="' + image_path + ' " width="25px" height="25px"/> &nbsp;');
 			});
 		});
-
 // Health Display
 		$.get('home/health').done(function(data) {
 			console.log('health = ' + data); // <== just a debug test
@@ -113,7 +117,6 @@ $('#RealTextbox').keyup(function(e) {
 
 	} // end of keyup listener
 });
-
 </script>
 
 @stop

@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder {
 
 		// $this->call('UsersTableSeeder'); // review for removal
 		$this->call('MapsTableSeeder');
-		$this->call('GuardsTableSeeder');
+		// $this->call('GuardsTableSeeder');
 		$this->call('ItemsTableSeeder');
 		$this->call('ActionsTableSeeder');
 
