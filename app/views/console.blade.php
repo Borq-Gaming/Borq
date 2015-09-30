@@ -61,10 +61,14 @@
 </div>
 
 <div class="form-group">
-
-	 <button class="btn btn-success" id="start">START</button>
-	
+	<div id="start">	
+		<img src="/images/shield1 copy.png" width="300" height="300"/>
+	</div>
+	 <!-- <button class="btn btn-success" id="start">START</button> -->
 </div>
+
+
+	
 
 <div style="display: none;" id="grabMe">
 	<strong>Hit:</strong> When you encounter a guard and wish to engage simply type the command "hit" <br><br>
@@ -133,8 +137,8 @@ $(document).ready(function() {
 		var imageDisplay = function() {
 				var background_image = 'url(/' + data.image + ')';
 				$('body').css('background-image', background_image);
-				});
-			};
+				};
+			});
 		};
 		// Item Icon Display
 		var itemDisplay = function() {

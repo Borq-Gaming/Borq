@@ -91,11 +91,10 @@ body {
 	border: ridge;
 	margin: 20px 10px 10px 575px;
 	/*set the width on this and above*/
+}
 
 
-
-
-# {
+#instructions {
 	position: absolute;
     top: 0px;
     right: 20px;
@@ -114,7 +113,7 @@ body {
 #shield {
 	position: relative;
 	bottom: 450px;
-	left: 60px;
+	left: 200px;
 	
 }
 
@@ -129,7 +128,6 @@ body {
   #footer {
   	position: relative;
   	left: 450px;
-  	bottom: 30px;
   }
 
 
