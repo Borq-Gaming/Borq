@@ -208,14 +208,21 @@ class MapsTableSeeder extends Seeder {
 			'objects'			=> 'crown',
 		]);
 		
-
-	// TODO:  Determine if we need window destination to end the game
 	// Exit Window
 		$window = Map::create([
 			'location_name'		=> 'window',
 			'image'				=> 'images/areas/window-exit.png',
 			'display_name'		=> 'Window',
 			'description'		=> 'Window escape - the end...', // write content
+
+		]);
+		
+	// Lost Game
+		$gameover = Map::create([
+			'location_name'		=> 'gameover',
+			'image'				=> 'images/areas/castle-outer.png',
+			'display_name'		=> 'Game Over',
+			'description'		=> 'Game Over', // write content
 
 		]);
 
