@@ -139,7 +139,6 @@ $(document).ready(function() {
 		// Item Icon Display
 		var itemDisplay = function() {
 			$.get('home/items').done(function(data) {
-				console.log(data);
 
 				$('#items').empty();
 
