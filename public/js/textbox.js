@@ -20,6 +20,9 @@
 					$('#PastCommands').append("> " + $(this).val());
 					$(this).val('');
 					$('#FakeTextbox').text('');
+
+					//to call each turn
+					turnCheck();
 				} else {
 					$('#FakeTextbox').html($(this).val());
 				}
@@ -40,6 +43,18 @@
 			} else {
 				determineCommand(firstAction, secondAction);
 			}
+		}
+		function turnCheck() {
+			console.log("turncheck");
+			$http.get("turn/check").then(function(data) {
+				$log.info("Dat Info was sent to the server successfully!");
+				console.log(data);
+				display(data.data);
+			}, function(response) {
+				$log.error("Ajax request failed for some reason!");
+
+				$log.debug(response);
+			});
 		}
 
 		function determineCommand(command, value, valueB) {
@@ -121,6 +136,13 @@
 				$log.debug(response);
 			});
 		}
+
+		// $http.get('home/health').then(function(data) {
+		// 	console.log('health = ' + data); // <== just a debug test
+		//     $( "#health_bar" ).progressbar({
+		//       val: data
+		//     });
+		//   });
 
 		function ajaxUse(value1, value2) {
 			$http.post("use/stuff", {

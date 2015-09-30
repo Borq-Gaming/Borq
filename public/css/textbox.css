@@ -1,5 +1,5 @@
 body {
-	background-image: url('/images/hallway-2-opac.png');
+	background-image: url('/images/areas/castle-outer.png');
 }
 
 .label {
@@ -67,10 +67,31 @@ body {
 
 #current_location {
 	border: ridge;
+	max-width: 400;
+	width:70%;
 }
 
-#health {
-	
-	
+
+.ui-widget-header {
+	background: #FF0000;
+	/*border: 1px solid #DDDDDD;*/
+	border: ridge;
+	max-width: 400px;
+	color: #333333;
+	font-weight: bold;
 }
+
+#start {
+	margin: 20px 10px 10px 575px;
+}
+
+#instructions {
+	 position: absolute;
+    top: 0px;
+    right: 20px;
+}
+
+
+
+
 

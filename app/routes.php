@@ -14,7 +14,7 @@
 Route::get('/', 'HomeController@showConsole');
 
 
-Route::get('start', 'HomeController@startGame');
+Route::get('start', 'HomeController@start');
 
 Route::controller('move', 'MoveController');
 Route::controller('take', 'TakeController');
@@ -23,3 +23,4 @@ Route::controller('eat', 'EatController');
 Route::controller('use', 'UseController');
 
 Route::controller('home', 'HomeController');
+Route::controller('turn', 'TurnController');

@@ -2,6 +2,7 @@
 
 @section('style')
 <link rel="stylesheet" href="/css/textbox.css">
+
 @stop
 
 @section('content')
@@ -10,7 +11,11 @@
 	<img src="/images/Borq.png" width="300" height="75" alt="borq logo"/>
 </div>
 
-<div class="container col-sm-12">
+<div id="instructions">
+	<img src="/images/scroll-paper-parchment-border-background-leather copy.png" width="250" height="75"/>
+</div>
+
+<div class="container col-sm-12" id="game_box" style="display: none;">
 	<div class="row">
 		<div class="col-sm-offset-1 col-sm-10 col-sm-offset-1 col-md-offset-3 col-md-6 col-md-offset-3">
 
@@ -27,14 +32,11 @@
 
 			</div>
 
-
-
 			<div class='row'>
 				<div class='form-group col-sm-12'>
 					<div name="items" for="items">
 						<label class="label" class="form-group" id="item_label" name="items">Inventory</label>
-						<div id='items'>
-						</div>
+						<div id='items'></div>
 					</div>
 				</div>
 			</div>
@@ -57,7 +59,18 @@
 </div>
 
 <div class="form-group">
-	 <a href="{{{ action('HomeController@startGame') }}}"><button class="btn btn-success" >START</button></a>
+
+	 <button class="btn btn-success" id="start">START</button>
+	
+</div>
+
+<div style="display: none;" id="grabMe">
+	<strong>Hit:</strong> When you encounter a guard and wish to engage simply type the command "hit" <br><br>
+	<strong>Use:</strong> When you have an item is available for use type command "use + the item name"<br><br>
+	<strong>Eat:</strong> When food is available in your items type command "eat + the item name"<br><br>
+	<strong>Move:</strong> To make your way through the castle type command "move +"<br>
+	North, South, East or West <br><br>
+	<strong>Take:</strong> To add an item to your inventory type command "take" + item name<br><br>
 </div>
 
 
@@ -68,50 +81,113 @@
 
 <script>
 
-$('#RealTextbox').keyup(function(e) {
-	var code = (e.keyCode ? e.keyCode : e.which);
-	// Enter key
-	if(code == 13) {
+
+// Unhide game_box
+$(document).ready(function() {
+	// Instruction Modal
+	var myModal2;
+	myModal2 = $('#myModal2').jBox('Modal', {
+
+		title: 'Guide your way through the palace to steal the king crown using these available commands!',
+		content: $('#grabMe'),
+	});
+	
+	// Start Game animation
+	$('#start').click(function(){
+		$('#game_box').toggle(1000);
+		$.get('/start').done(function() {
+			console.log('Game is Started');
+		});
+		$('#start').prop('disabled', true);
+		$('#start').animate({opacity: 0}, 750);
+
+	});
+
+	// Health Bar
+	$.get('home/health').done(function(data) {
+	    $( "#health_bar" ).progressbar({
+	      value: 10,
+	      max:10
+	    });
+	 });
 
 
-// Location Display
-		$.get('move/index').done(function(data) {
+	// Game Actions and Display Results
+	// TIMOTHY -->
+	// TODO:  move locationDisplay(), imageDisplay(), itemDisplay(), to keyListener function
+
+	$('#RealTextbox').keyup(function(e) {
+		var code = (e.keyCode ? e.keyCode : e.which);
+		// Enter key
+		if(code == 13) {
+
+		// Display Functions
+		var locationDisplay = function() {
+			$.get('move/index').done(function(data) {
 			console.log(data);	
+			// Display Name
 			$('#current_location').val(data.display_name);
 
-			var items = data.objects;
-			console.log(items);
+		// Background Image Display
+		var imageDisplay = function() {
+				var background_image = 'url(/' + data.image + ')';
+				$('body').css('background-image', background_image);
+				});
+			};
+		};
 
-			var items_array = items.split(', ');
+		// Item Icon Display
+		var itemDisplay = function() {
+			$.get('home/items').done(function(data) {
+				console.log(data);
 
-			items_array.forEach(function (element, index, array) {
+				$('#items').empty();
+
+				if (data.key == 1) {
+					$('#items').append('<img src="/images/key.png"' + '" width="25px" height="25px"/> &nbsp;');
+				}
+
+				if (data.sword == 1) {
+					$('#items').append('<img src="/images/sword.png"' + '" width="25px" height="25px"/> &nbsp;');
+				}
+
+				if (data.armor == 1) {
+					$('#items').append('<img src="/images/armor.png"' + '" width="25px" height="25px"/> &nbsp;');
+				}
+
+				if (data.lantern == 1) {
+					$('#items').append('<img src="/images/lantern.png"' + '" width="25px" height="25px"/> &nbsp;');
+				}
+
+				if (data.apple == 1) {
+					$('#items').append('<img src="/images/apple.png"' + '" width="25px" height="25px"/> &nbsp;');
+				}
+
+				if (data.bread == 1) {
+					$('#items').append('<img src="/images/bread.png"' + '" width="25px" height="25px"/> &nbsp;');
+				}
+
+				if (data.wine == 1) {
+					$('#items').append('<img src="/images/wine.png"' + '" width="25px" height="25px"/> &nbsp;');
+				}
+
+				if (data.note == 1) {
+					$('#items').append("");
+					$('#items').append('<img src="/images/note.png"' + '" width="25px" height="25px"/> &nbsp;');
+				}
+
+				if (data.gown == 1) {
+					$('#items').append('<img src="/images/gown.png"' + '" width="25px" height="25px"/> &nbsp;');
+				}
+
+				if (data.crown == 1) {
+					$('#items').append('<img src="/images/crown.png"' + '" width="25px" height="25px"/> &nbsp;');
+				}
+			}); // end of item display
+		};
 		
-				var image_path = '/images/' + element + '.png';
-				console.log(image_path);
-				$('#items').append("");
-				$('#items').append('<img src="' + image_path + ' " width="25px" height="25px"/> &nbsp;');
-			});
-		});
-
-// Health Display
-		$.get('home/health').done(function(data) {
-			console.log('health = ' + data); // <== just a debug test
-		    $( "#health_bar" ).progressbar({
-		      value: data * 10
-		    });
-		  });
-
-
-// Items Display
-		// $.get('home/items').done(function(data) {
-		// 	console.log(data);
-		// 	// var items = ['sword', 'armor', 'key', 'lantern', 'apple', 'bread', 'wine', 'potion_invisibility', 'potion_strength', 'potion_regeneration', 'gown', 'note', 'crown']
-
-
-		// 	});
-		// }); 
-
-	} // end of keyup listener
+		} // end of keyup listener
+	});
 });
 
 </script>
