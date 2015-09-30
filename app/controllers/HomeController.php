@@ -82,7 +82,7 @@ class HomeController extends BaseController {
 		$guard8->map_id = 19;
 		$guard8->save();
 
-		return Redirect::action('HomeController@showConsole');
+		return Response::json($game);
 	}
 
 	public function getHealth()
