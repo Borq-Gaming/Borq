@@ -18,11 +18,16 @@ class HitController extends BaseController {
 	public function postGuard() 
 	{
 		$game = Auth::user();
-		if ($game->map->guards->toArray()) {
+
+		$guard = $game->map->guards()
+			->where('health', '>', 0)
+			->where('user_id', Auth::id())
+			->first();
+			
+		if ($game->map->guards->toArray() && $guard) {
 			$this->fetchStats();
 			$this->fetchGuard();
 			$return = $this->fight();
-			$this->update();
 		} else {
 			$return = "There is no one to fight.";
 		}
@@ -60,7 +65,10 @@ class HitController extends BaseController {
 	{
 		$game = Auth::user();
 
-		$guard = $game->map->guards()->where('health', '>', 0)->first();
+		$guard = $game->map->guards()
+			->where('health', '>', 0)
+			->where('user_id', Auth::id())
+			->first();
 		$this->guardHp = $guard->health;
 	}
 
@@ -73,6 +81,7 @@ class HitController extends BaseController {
 
 		//guard rngs
 		$guard = mt_rand(1, 3);
+		$dead = false;
 
 		// player hit
 		if ($hit > 30) {
@@ -80,6 +89,15 @@ class HitController extends BaseController {
 			$thing = $damage;
 			$damage = round($damage);
 
+			if ($this->guardHp <= $damage) {
+				$damage = $this->guardHp;
+				$dead = true;
+			}	
+
+			// update hp in var
+			$this->guardHp = $this->guardHp - $damage;
+
+			// return
 			$return1 = "You hit the guard for " . $damage . " damage. ";
 		} else {
 			$damage = 0;
@@ -87,17 +105,36 @@ class HitController extends BaseController {
 			$return1 = "You miss the guard. ";
 		}
 
-		//guard hit
-		if ($guard == 1) {
-			$guardDamage = 1;
-		} else {
-			$guardDamage = 2;
+		// check if guard is dead
+		if (!$dead) {
+			//guard hit
+			if ($guard == 1) {
+				$guardDamage = 1;
+			} else {
+				$guardDamage = 2;
+			}
+
+			$return2 = "The guard hits you for " . $guardDamage . " damage. ";
+
+			$this->hp = $this->hp - $guardDamage;
+			// update his hp
+			$this->update();
+		} else { //if he is
+			// update his death
+			$this->update();
+
+			//check for any others
+			$game = Auth::user();
+			$guard = $game->map->guards()
+				->where('health', '>', 0)
+				->where('user_id', Auth::id())
+				->first();
+			if ($guard) {
+				$return2 = "The guard collapses, unable to move. But there is another ready to join the fight. {$guard}";
+			} else {
+				$return2 = "The guard collapses, unable to fight.";
+			}
 		}
-
-		$return2 = "The guard hits you for " . $guardDamage . " damage. ";
-
-		$this->guardHp = $this->guardHp - $damage;
-		$this->hp = $this->hp - $guardDamage;
 
 		return $return1 . $return2;
 	}

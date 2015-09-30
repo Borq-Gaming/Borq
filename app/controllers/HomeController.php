@@ -11,6 +11,10 @@ class HomeController extends BaseController {
 	
 	public function start() 
 	{
+		if(Auth::user()) {
+			Auth::login();
+		}
+
 		$game = new User();
 		$game->player_location_id = 1;
 		$game->health = 10;
