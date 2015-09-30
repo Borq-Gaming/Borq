@@ -82,5 +82,13 @@ body {
 	margin: 20px 10px 10px 575px;
 }
 
+#instructions {
+	 position: absolute;
+    top: 0px;
+    right: 20px;
+}
+
+
+
 
 

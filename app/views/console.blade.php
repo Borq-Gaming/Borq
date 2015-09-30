@@ -8,7 +8,13 @@
 @section('content')
 
 <div id="borq_image">
+	<a href="#myModal" span style="cursor: pointer" id="myModal2">
 	<img src="/images/Borq.png" width="300" height="75" alt="borq logo"/>
+	</a></span>
+</div>
+
+<div id="instructions">
+	<img src="/images/scroll-paper-parchment-border-background-leather copy.png" width="250" height="75"/>
 </div>
 
 <div class="container col-sm-12">
@@ -58,7 +64,17 @@
 </div>
 
 <div class="form-group">
-	 <a href="{{{ action('HomeController@startGame') }}}"><button class="btn btn-success" >START</button></a>
+	 <a href="{{{ action('HomeController@start') }}}" ><button class="btn btn-success" id="start">START</button></a>
+	 <!-- <button class="btn btn-success" id="start">START</button> -->
+</div>
+
+<div style="display: none" id="grabMe">
+<strong>Hit:</strong> When you encounter a guard and wish to engage simply type the command "hit" <br><br>
+<strong>Use:</strong> When you have an item is available for use type command "use + the item name"<br><br>
+<strong>Eat:</strong> When food is available in your items type command "eat + the item name"<br><br>
+<strong>Move:</strong> To make your way through the castle type command "move +"<br>
+North, South, East or West <br><br>
+<strong>Take:</strong> To add an item to your inventory type command "take" + item name<br><br>
 </div>
 
 
@@ -68,12 +84,14 @@
 <script src="/js/textbox.js"></script>
 
 <script>
-$.get('home/health').done(function(data) {
-	console.log('health = ' + data); // <== just a debug test
-	$( "#health_bar" ).progressbar({
-	  value: data * 10,
+$(document).ready(function() {
+	var myModal2;
+		myModal2 = $('#myModal2').jBox('Modal', {
+		title: 'Guide your way through the palace to steal the king crown using these available commands!',
+		content: $('#grabMe'),
 	});
-	});
+});
+
 $('#RealTextbox').keyup(function(e) {
 	var code = (e.keyCode ? e.keyCode : e.which);
 	// Enter key
@@ -107,7 +125,8 @@ $('#RealTextbox').keyup(function(e) {
 		$.get('home/health').done(function(data) {
 			console.log('health = ' + data); // <== just a debug test
 		    $( "#health_bar" ).progressbar({
-		      value: data * 10
+
+		     	value: data * 10
 		    });
 		  });
 
