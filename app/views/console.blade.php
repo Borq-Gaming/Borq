@@ -8,13 +8,13 @@
 @section('content')
 
 <div id="borq_image">
-	<a href="#myModal" span style="cursor: pointer" id="myModal2">
 	<img src="/images/Borq.png" width="300" height="75" alt="borq logo"/>
-	</a></span>
 </div>
 
 <div id="instructions">
+	<a href="" span style="cursor: pointer" id="myModal2">
 	<img src="/images/scroll-paper-parchment-border-background-leather copy.png" width="250" height="75"/>
+	</a></span>
 </div>
 
 <div class="container col-sm-12">
@@ -65,16 +65,18 @@
 
 <div class="form-group">
 	 <a href="{{{ action('HomeController@start') }}}" ><button class="btn btn-success" id="start">START</button></a>
-	 <!-- <button class="btn btn-success" id="start">START</button> -->
+	 <a href="{{{ action('HomeController@start') }}}">
+	 <img id="shield" src="/images/shield1 copy.png">
+	 </a>
 </div>
 
 <div style="display: none" id="grabMe">
-<strong>Hit:</strong> When you encounter a guard and wish to engage simply type the command "hit" <br><br>
-<strong>Use:</strong> When you have an item is available for use type command "use + the item name"<br><br>
-<strong>Eat:</strong> When food is available in your items type command "eat + the item name"<br><br>
-<strong>Move:</strong> To make your way through the castle type command "move +"<br>
-North, South, East or West <br><br>
-<strong>Take:</strong> To add an item to your inventory type command "take" + item name<br><br>
+<strong>Move:</strong> To make your way through the castle type command "move +<br>
+North, South, East or West" <br><br>
+<strong>Hit:</strong> When you encounter a guard and wish to engage, simply type the command "hit" <br><br>
+<strong>Use:</strong> When you have an item that is available for use, type the command "use + the item name"<br><br>
+<strong>Eat:</strong> When food is available in your items type the command "eat + the item name"<br><br>
+<strong>Take:</strong> To add an item to your inventory type command "take + item name"<br><br>
 </div>
 
 
