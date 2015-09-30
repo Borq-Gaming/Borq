@@ -60,9 +60,9 @@
 	</div>
 </div>
 
-<div class="form-group">
-	<div id="start">	
-		<img src="/images/shield1 copy.png" width="300" height="300"/>
+<div class="form-group container col-md-3 col-md-offset-4">
+	<div id="start_container">	
+		<a type="submit" id="start"><img src="/images/shield1 copy.png" width="300" height="300"/></a>
 	</div>
 	 <!-- <button class="btn btn-success" id="start">START</button> -->
 </div>
@@ -105,6 +105,7 @@ $(document).ready(function() {
 		});
 		$('#start').prop('disabled', true);
 		$('#start').animate({opacity: 0}, 750);
+		$('#start').hide();
 
 	});
 
@@ -213,9 +214,11 @@ $(document).ready(function() {
 @stop
 
 @section('footer')
-<div id="footer">
-	<a href="https://github.com/Borq-Gaming/borq.dev">
-	<img src="/images/Borq-Gaming.png">
-	</a>
-</div>
+<footer class="footer">
+	<div class="container">
+		<a href="https://github.com/Borq-Gaming/borq.dev">
+		<img src="/images/Borq-Gaming.png" width="300" height="relative">
+		</a>
+	</div>
+</footer>
 @stop
