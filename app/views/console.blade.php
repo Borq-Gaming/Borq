@@ -12,7 +12,9 @@
 </div>
 
 <div id="instructions">
+	<a href="" span style="cursor: pointer" id="myModal2">
 	<img src="/images/scroll-paper-parchment-border-background-leather copy.png" width="250" height="75"/>
+	</a></span>
 </div>
 
 <div class="container col-sm-12" id="game_box" style="display: none;">
@@ -59,10 +61,14 @@
 </div>
 
 <div class="form-group">
-
-	 <button class="btn btn-success" id="start">START</button>
-	
+	<div id="start">	
+		<img src="/images/shield1 copy.png" width="300" height="300"/>
+	</div>
+	 <!-- <button class="btn btn-success" id="start">START</button> -->
 </div>
+
+
+	
 
 <div style="display: none;" id="grabMe">
 	<strong>Hit:</strong> When you encounter a guard and wish to engage simply type the command "hit" <br><br>
@@ -83,6 +89,7 @@
 
 
 // Unhide game_box
+
 $(document).ready(function() {
 	// Instruction Modal
 	var myModal2;
@@ -111,8 +118,80 @@ $(document).ready(function() {
 	      max:10
 	    });
 	 });
+
+
+	// Game Actions and Display Results
+	// TIMOTHY -->
+	// TODO:  move locationDisplay(), imageDisplay(), itemDisplay(), to keyListener function
+	$('#RealTextbox').keyup(function(e) {
+		var code = (e.keyCode ? e.keyCode : e.which);
+		// Enter key
+		if(code == 13) {
+		// Display Functions
+		var locationDisplay = function() {
+			$.get('move/index').done(function(data) {
+			console.log(data);	
+			// Display Name
+			$('#current_location').val(data.display_name);
+		// Background Image Display
+		var imageDisplay = function() {
+				var background_image = 'url(/' + data.image + ')';
+				$('body').css('background-image', background_image);
+				};
+			});
+		};
+		// Item Icon Display
+		var itemDisplay = function() {
+			$.get('home/items').done(function(data) {
+				console.log(data);
+				$('#items').empty();
+				if (data.key == 1) {
+					$('#items').append('<img src="/images/key.png"' + '" width="25px" height="25px"/> &nbsp;');
+				}
+				if (data.sword == 1) {
+					$('#items').append('<img src="/images/sword.png"' + '" width="25px" height="25px"/> &nbsp;');
+				}
+				if (data.armor == 1) {
+					$('#items').append('<img src="/images/armor.png"' + '" width="25px" height="25px"/> &nbsp;');
+				}
+				if (data.lantern == 1) {
+					$('#items').append('<img src="/images/lantern.png"' + '" width="25px" height="25px"/> &nbsp;');
+				}
+				if (data.apple == 1) {
+					$('#items').append('<img src="/images/apple.png"' + '" width="25px" height="25px"/> &nbsp;');
+				}
+				if (data.bread == 1) {
+					$('#items').append('<img src="/images/bread.png"' + '" width="25px" height="25px"/> &nbsp;');
+				}
+				if (data.wine == 1) {
+					$('#items').append('<img src="/images/wine.png"' + '" width="25px" height="25px"/> &nbsp;');
+				}
+				if (data.note == 1) {
+					$('#items').append("");
+					$('#items').append('<img src="/images/note.png"' + '" width="25px" height="25px"/> &nbsp;');
+				}
+				if (data.gown == 1) {
+					$('#items').append('<img src="/images/gown.png"' + '" width="25px" height="25px"/> &nbsp;');
+				}
+				if (data.crown == 1) {
+					$('#items').append('<img src="/images/crown.png"' + '" width="25px" height="25px"/> &nbsp;');
+				}
+			}); // end of item display
+		};
+		
+		} // end of keyup listener
+	});
+
 });
 
 </script>
 
+@stop
+
+@section('footer')
+<div id="footer">
+	<a href="https://github.com/Borq-Gaming/borq.dev">
+	<img src="/images/Borq-Gaming.png">
+	</a>
+</div>
 @stop

@@ -66,12 +66,13 @@ body {
 }
 
 #current_location {
+	
 	border: ridge;
 	max-width: 400;
 	width:70%;
 }
 
-
+/*health bar*/
 .ui-widget-header {
 	background: #FF0000;
 	/*border: 1px solid #DDDDDD;*/
@@ -79,17 +80,55 @@ body {
 	max-width: 400px;
 	color: #333333;
 	font-weight: bold;
+	max-width: 400px;
 }
 
-#start {
+/*health bar*/
+.ui-progressbar {
+	height: 2em;
+	text-align: left;
+	overflow: hidden;
+	border: ridge;
 	margin: 20px 10px 10px 575px;
+	/*set the width on this and above*/
 }
+
 
 #instructions {
-	 position: absolute;
+	position: absolute;
     top: 0px;
     right: 20px;
 }
+
+/*#shield {
+	margin: 20px 10px 10px 550px;
+}*/
+
+/*#shield {
+	position: absolute;
+	top: 100px;
+	right: 90px;
+}*/
+
+#shield {
+	position: relative;
+	bottom: 450px;
+	left: 200px;
+	
+}
+
+/*.jBox-container {
+  background: #fff;
+  }*/
+
+  .jBox-container {
+  
+  }
+
+  #footer {
+  	position: relative;
+  	left: 450px;
+  }
 
 
 
