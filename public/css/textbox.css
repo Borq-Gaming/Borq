@@ -72,15 +72,23 @@ body {
 
 
 .ui-widget-header {
-	background: #00FF00;
-	border: 1px solid #DDDDDD;
+	background: #FF0000;
+	border: 1px solid #DDDDDD
 	color: #333333;
 	font-weight: bold;
 }
 
 .btn {
-	
+	margin: 20px 10px 10px 575px;
 }
+
+#instructions {
+	 position: absolute;
+    top: 0px;
+    right: 20px;
+}
+
+
 
 
 

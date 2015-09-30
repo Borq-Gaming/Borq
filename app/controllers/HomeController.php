@@ -9,7 +9,7 @@ class HomeController extends BaseController {
 
 	}
 	
-	public function startGame() 
+	public function start() 
 	{
 		$game = new User();
 		$game->player_location_id = 1;
@@ -78,6 +78,7 @@ class HomeController extends BaseController {
 		$guard8->map_id = 19;
 		$guard8->save();
 
+		return Redirect::action('HomeController@showConsole');
 	}
 
 	public function getHealth()
