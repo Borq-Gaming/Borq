@@ -23,3 +23,4 @@ Route::controller('eat', 'EatController');
 Route::controller('use', 'UseController');
 
 Route::controller('home', 'HomeController');
+Route::controller('turn', 'TurnController');
