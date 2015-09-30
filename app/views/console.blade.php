@@ -20,12 +20,12 @@
 		<div class="col-sm-offset-1 col-sm-10 col-sm-offset-1 col-md-offset-3 col-md-6 col-md-offset-3">
 
 			<div class="row">
-				<div id="location" class="col-sm-7">
+				<div id="location" class="col-sm-6">
 					<label class="label" id="location_label" for="location">Location</label></br>
 					<input id="current_location" disabled>
 				</div>
 
-				<div id="health" class="col-sm-4">
+				<div id="health" class="col-sm-6">
 					<label class="label" for="health">Health</label>
 					<div id="health_bar"></div>
 				</div>
@@ -89,7 +89,7 @@ $(document).ready(function() {
 	myModal2 = $('#myModal2').jBox('Modal', {
 
 		title: 'Guide your way through the palace to steal the king crown using these available commands!',
-		content: $('#grabMe'),
+		content: $('#grabMe')
 	});
 	
 	// Start Game animation
@@ -125,17 +125,17 @@ $(document).ready(function() {
 		// Display Functions
 		var locationDisplay = function() {
 			$.get('move/index').done(function(data) {
-			console.log(data);	
 			// Display Name
-			$('#current_location').val(data.display_name);
+				$('#current_location').val(data.display_name);
+			});
+		};
 
 		// Background Image Display
 		var imageDisplay = function() {
-				var background_image = 'url(/' + data.image + ')';
-				$('body').css('background-image', background_image);
-				});
-			};
+			var background_image = 'url(/' + data.image + ')';
+			$('body').css('background-image', background_image);
 		};
+	
 
 		// Item Icon Display
 		var itemDisplay = function() {
@@ -183,7 +183,7 @@ $(document).ready(function() {
 				if (data.crown == 1) {
 					$('#items').append('<img src="/images/crown.png"' + '" width="25px" height="25px"/> &nbsp;');
 				}
-			}); // end of item display
+			}); 
 		};
 		
 		} // end of keyup listener
