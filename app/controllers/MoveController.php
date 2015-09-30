@@ -69,6 +69,20 @@ class MoveController extends BaseController {
 	public function postEast()
 	{
 		$next = $this->findCurrent();
+
+		$player = Auth::user()
+
+		// exepction for locked door
+		if ($player->player_location_id == 2) {
+			// check if locked
+			if ($player->access_x){ // if unlocked
+				$this->nextRoom = $next->east_map_id;
+				return $this->updateLocation($next);
+			} else { // if locked
+				$return = "This door is locked";
+				return Response::json($return);
+			}
+		}
 		$this->nextRoom = $next->east_map_id;
 		return $this->updateLocation($next);
 	}
