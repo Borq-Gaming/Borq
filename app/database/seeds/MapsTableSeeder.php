@@ -175,7 +175,7 @@ class MapsTableSeeder extends Seeder {
 			'display_name'		=> 'Dressing and Wash Room',
 			'image'				=> 'images/areas/dressing.png',
 			'description'		=> 'You find yourself in the king and queens dressing chamber.  It also has a wash room.  There are many fabulous garments hung in the closet.  A sleeping gown of the queen gives you an idea...',
-			'objects'			=> 'queen_sleeping_clothing',
+			'objects'			=> 'gown',
 		]);
 
 	// Study
