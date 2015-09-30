@@ -94,6 +94,7 @@ $(document).ready(function() {
 	
 	// Start Game animation
 	$('#start').click(function(){
+		console.log("test");
 		$('#game_box').toggle(1000);
 		$.get('/start').done(function() {
 			console.log('Game is Started');
@@ -110,84 +111,6 @@ $(document).ready(function() {
 	      max:10
 	    });
 	 });
-
-
-	// Game Actions and Display Results
-	// TIMOTHY -->
-	// TODO:  move locationDisplay(), imageDisplay(), itemDisplay(), to keyListener function
-
-	$('#RealTextbox').keyup(function(e) {
-		var code = (e.keyCode ? e.keyCode : e.which);
-		// Enter key
-		if(code == 13) {
-
-		// Display Functions
-		var locationDisplay = function() {
-			$.get('move/index').done(function(data) {
-			console.log(data);	
-			// Display Name
-			$('#current_location').val(data.display_name);
-
-		// Background Image Display
-		var imageDisplay = function() {
-				var background_image = 'url(/' + data.image + ')';
-				$('body').css('background-image', background_image);
-				});
-			};
-		};
-
-		// Item Icon Display
-		var itemDisplay = function() {
-			$.get('home/items').done(function(data) {
-				console.log(data);
-
-				$('#items').empty();
-
-				if (data.key == 1) {
-					$('#items').append('<img src="/images/key.png"' + '" width="25px" height="25px"/> &nbsp;');
-				}
-
-				if (data.sword == 1) {
-					$('#items').append('<img src="/images/sword.png"' + '" width="25px" height="25px"/> &nbsp;');
-				}
-
-				if (data.armor == 1) {
-					$('#items').append('<img src="/images/armor.png"' + '" width="25px" height="25px"/> &nbsp;');
-				}
-
-				if (data.lantern == 1) {
-					$('#items').append('<img src="/images/lantern.png"' + '" width="25px" height="25px"/> &nbsp;');
-				}
-
-				if (data.apple == 1) {
-					$('#items').append('<img src="/images/apple.png"' + '" width="25px" height="25px"/> &nbsp;');
-				}
-
-				if (data.bread == 1) {
-					$('#items').append('<img src="/images/bread.png"' + '" width="25px" height="25px"/> &nbsp;');
-				}
-
-				if (data.wine == 1) {
-					$('#items').append('<img src="/images/wine.png"' + '" width="25px" height="25px"/> &nbsp;');
-				}
-
-				if (data.note == 1) {
-					$('#items').append("");
-					$('#items').append('<img src="/images/note.png"' + '" width="25px" height="25px"/> &nbsp;');
-				}
-
-				if (data.gown == 1) {
-					$('#items').append('<img src="/images/gown.png"' + '" width="25px" height="25px"/> &nbsp;');
-				}
-
-				if (data.crown == 1) {
-					$('#items').append('<img src="/images/crown.png"' + '" width="25px" height="25px"/> &nbsp;');
-				}
-			}); // end of item display
-		};
-		
-		} // end of keyup listener
-	});
 });
 
 </script>
