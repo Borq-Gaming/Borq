@@ -17,7 +17,7 @@
 	</a></span>
 </div>
 
-<div class="container col-sm-12">
+<div class="container col-sm-12" id="game_box" style="display:none;">
 	<div class="row">
 		<div class="col-sm-offset-1 col-sm-10 col-sm-offset-1 col-md-offset-3 col-md-6 col-md-offset-3">
 
@@ -65,9 +65,6 @@
 
 <div class="form-group">
 	 <a href="{{{ action('HomeController@start') }}}" ><button class="btn btn-success" id="start">START</button></a>
-	 <a href="{{{ action('HomeController@start') }}}">
-	 <img id="shield" src="/images/shield1 copy.png">
-	 </a>
 </div>
 
 <div style="display: none" id="grabMe">
@@ -86,6 +83,24 @@ North, South, East or West" <br><br>
 <script src="/js/textbox.js"></script>
 
 <script>
+
+
+// Unhide game_box
+$('#start').click(function(){
+	$('#game_box').toggle(1000);
+	$('#start').prop('disabled', true);
+	$('#start').animate({opacity: 0}, 750);
+
+});
+
+$.get('home/health').done(function(data) {
+			console.log('health = ' + data); // <== just a debug test
+		    $( "#health_bar" ).progressbar({
+		      value: 10,
+		      max:10
+		    });
+		  });
+
 $(document).ready(function() {
 	var myModal2;
 		myModal2 = $('#myModal2').jBox('Modal', {
@@ -93,6 +108,7 @@ $(document).ready(function() {
 		content: $('#grabMe'),
 	});
 });
+
 
 $('#RealTextbox').keyup(function(e) {
 	var code = (e.keyCode ? e.keyCode : e.which);
@@ -108,20 +124,55 @@ $('#RealTextbox').keyup(function(e) {
 			// Background Image Display
 			var background_image = 'url(/' + data.image + ')';
 			$('body').css('background-image', background_image);
-
-			// Item Icon Display
-			var items = data.objects;
-			var items_array = items.split(', ');
-
-			items_array.forEach(function (element, index, array) {
-		
-				var image_path = '/images/' + element + '.png';
-				console.log(image_path);
-				$('#items').append("");
-				$('#items').append('<img src="' + image_path + ' " width="25px" height="25px"/> &nbsp;');
-			});
-
 		});
+
+		// Item Icon Display
+		$.get('home/items').done(function(data) {
+			console.log(data);
+
+			$('#items').empty();
+
+			if (data.key == 1) {
+				$('#items').append('<img src="/images/key.png"' + '" width="25px" height="25px"/> &nbsp;');
+			}
+
+			if (data.sword == 1) {
+				$('#items').append('<img src="/images/sword.png"' + '" width="25px" height="25px"/> &nbsp;');
+			}
+
+			if (data.armor == 1) {
+				$('#items').append('<img src="/images/armor.png"' + '" width="25px" height="25px"/> &nbsp;');
+			}
+
+			if (data.lantern == 1) {
+				$('#items').append('<img src="/images/lantern.png"' + '" width="25px" height="25px"/> &nbsp;');
+			}
+
+			if (data.apple == 1) {
+				$('#items').append('<img src="/images/apple.png"' + '" width="25px" height="25px"/> &nbsp;');
+			}
+
+			if (data.bread == 1) {
+				$('#items').append('<img src="/images/bread.png"' + '" width="25px" height="25px"/> &nbsp;');
+			}
+
+			if (data.wine == 1) {
+				$('#items').append('<img src="/images/wine.png"' + '" width="25px" height="25px"/> &nbsp;');
+			}
+
+			if (data.note == 1) {
+				$('#items').append("");
+				$('#items').append('<img src="/images/note.png"' + '" width="25px" height="25px"/> &nbsp;');
+			}
+
+			if (data.gown == 1) {
+				$('#items').append('<img src="/images/gown.png"' + '" width="25px" height="25px"/> &nbsp;');
+			}
+
+			if (data.crown == 1) {
+				$('#items').append('<img src="/images/crown.png"' + '" width="25px" height="25px"/> &nbsp;');
+			}
+		}); // end of item display
 
 // Health Display
 		$.get('home/health').done(function(data) {
