@@ -8,16 +8,14 @@
 @section('content')
 
 <div id="borq_image">
-	<a href="#myModal" span style="cursor: pointer" id="myModal2">
 	<img src="/images/Borq.png" width="300" height="75" alt="borq logo"/>
-	</a></span>
 </div>
 
 <div id="instructions">
 	<img src="/images/scroll-paper-parchment-border-background-leather copy.png" width="250" height="75"/>
 </div>
 
-<div class="container col-sm-12" id="game_box" style="display:none;">
+<div class="container col-sm-12" id="game_box" style="display: none;">
 	<div class="row">
 		<div class="col-sm-offset-1 col-sm-10 col-sm-offset-1 col-md-offset-3 col-md-6 col-md-offset-3">
 
@@ -34,14 +32,11 @@
 
 			</div>
 
-
-
 			<div class='row'>
 				<div class='form-group col-sm-12'>
 					<div name="items" for="items">
 						<label class="label" class="form-group" id="item_label" name="items">Inventory</label>
-						<div id='items'>
-						</div>
+						<div id='items'></div>
 					</div>
 				</div>
 			</div>
@@ -64,17 +59,18 @@
 </div>
 
 <div class="form-group">
-	 <a href="{{{ action('HomeController@start') }}}" ><button class="btn btn-success" id="start">START</button></a>
+
+	 <button class="btn btn-success" id="start">START</button>
 	
 </div>
 
-<div style="display: none" id="grabMe">
-<strong>Hit:</strong> When you encounter a guard and wish to engage simply type the command "hit" <br><br>
-<strong>Use:</strong> When you have an item is available for use type command "use + the item name"<br><br>
-<strong>Eat:</strong> When food is available in your items type command "eat + the item name"<br><br>
-<strong>Move:</strong> To make your way through the castle type command "move +"<br>
-North, South, East or West <br><br>
-<strong>Take:</strong> To add an item to your inventory type command "take" + item name<br><br>
+<div style="display: none;" id="grabMe">
+	<strong>Hit:</strong> When you encounter a guard and wish to engage simply type the command "hit" <br><br>
+	<strong>Use:</strong> When you have an item is available for use type command "use + the item name"<br><br>
+	<strong>Eat:</strong> When food is available in your items type command "eat + the item name"<br><br>
+	<strong>Move:</strong> To make your way through the castle type command "move +"<br>
+	North, South, East or West <br><br>
+	<strong>Take:</strong> To add an item to your inventory type command "take" + item name<br><br>
 </div>
 
 
@@ -87,105 +83,113 @@ North, South, East or West <br><br>
 
 
 // Unhide game_box
-$('#start').click(function(){
-	$('#game_box').toggle(1000);
-	$('#start').prop('disabled', true);
-	$('#start').animate({opacity: 0}, 750);
-
-});
-
-$.get('home/health').done(function(data) {
-			console.log('health = ' + data); // <== just a debug test
-		    $( "#health_bar" ).progressbar({
-		      value: 10,
-		      max:10
-		    });
-		  });
-
 $(document).ready(function() {
+	// Instruction Modal
 	var myModal2;
-		myModal2 = $('#myModal2').jBox('Modal', {
+	myModal2 = $('#myModal2').jBox('Modal', {
+
 		title: 'Guide your way through the palace to steal the king crown using these available commands!',
 		content: $('#grabMe'),
 	});
-});
+	
+	// Start Game animation
+	$('#start').click(function(){
+		$('#game_box').toggle(1000);
+		$.get('/start').done(function() {
+			console.log('Game is Started');
+		});
+		$('#start').prop('disabled', true);
+		$('#start').animate({opacity: 0}, 750);
+
+	});
+
+	// Health Bar
+	$.get('home/health').done(function(data) {
+	    $( "#health_bar" ).progressbar({
+	      value: 10,
+	      max:10
+	    });
+	 });
 
 
-$('#RealTextbox').keyup(function(e) {
-	var code = (e.keyCode ? e.keyCode : e.which);
-	// Enter key
-	if(code == 13) {
+	// Game Actions and Display Results
+	// TIMOTHY -->
+	// TODO:  move locationDisplay(), imageDisplay(), itemDisplay(), to keyListener function
 
-	// Display Functions
-		$.get('move/index').done(function(data) {
+	$('#RealTextbox').keyup(function(e) {
+		var code = (e.keyCode ? e.keyCode : e.which);
+		// Enter key
+		if(code == 13) {
+
+		// Display Functions
+		var locationDisplay = function() {
+			$.get('move/index').done(function(data) {
 			console.log(data);	
 			// Display Name
 			$('#current_location').val(data.display_name);
 
-			// Background Image Display
-			var background_image = 'url(/' + data.image + ')';
-			$('body').css('background-image', background_image);
-		});
+		// Background Image Display
+		var imageDisplay = function() {
+				var background_image = 'url(/' + data.image + ')';
+				$('body').css('background-image', background_image);
+				});
+			};
+		};
 
 		// Item Icon Display
-		$.get('home/items').done(function(data) {
-			console.log(data);
+		var itemDisplay = function() {
+			$.get('home/items').done(function(data) {
+				console.log(data);
 
-			$('#items').empty();
+				$('#items').empty();
 
-			if (data.key == 1) {
-				$('#items').append('<img src="/images/key.png"' + '" width="25px" height="25px"/> &nbsp;');
-			}
+				if (data.key == 1) {
+					$('#items').append('<img src="/images/key.png"' + '" width="25px" height="25px"/> &nbsp;');
+				}
 
-			if (data.sword == 1) {
-				$('#items').append('<img src="/images/sword.png"' + '" width="25px" height="25px"/> &nbsp;');
-			}
+				if (data.sword == 1) {
+					$('#items').append('<img src="/images/sword.png"' + '" width="25px" height="25px"/> &nbsp;');
+				}
 
-			if (data.armor == 1) {
-				$('#items').append('<img src="/images/armor.png"' + '" width="25px" height="25px"/> &nbsp;');
-			}
+				if (data.armor == 1) {
+					$('#items').append('<img src="/images/armor.png"' + '" width="25px" height="25px"/> &nbsp;');
+				}
 
-			if (data.lantern == 1) {
-				$('#items').append('<img src="/images/lantern.png"' + '" width="25px" height="25px"/> &nbsp;');
-			}
+				if (data.lantern == 1) {
+					$('#items').append('<img src="/images/lantern.png"' + '" width="25px" height="25px"/> &nbsp;');
+				}
 
-			if (data.apple == 1) {
-				$('#items').append('<img src="/images/apple.png"' + '" width="25px" height="25px"/> &nbsp;');
-			}
+				if (data.apple == 1) {
+					$('#items').append('<img src="/images/apple.png"' + '" width="25px" height="25px"/> &nbsp;');
+				}
 
-			if (data.bread == 1) {
-				$('#items').append('<img src="/images/bread.png"' + '" width="25px" height="25px"/> &nbsp;');
-			}
+				if (data.bread == 1) {
+					$('#items').append('<img src="/images/bread.png"' + '" width="25px" height="25px"/> &nbsp;');
+				}
 
-			if (data.wine == 1) {
-				$('#items').append('<img src="/images/wine.png"' + '" width="25px" height="25px"/> &nbsp;');
-			}
+				if (data.wine == 1) {
+					$('#items').append('<img src="/images/wine.png"' + '" width="25px" height="25px"/> &nbsp;');
+				}
 
-			if (data.note == 1) {
-				$('#items').append("");
-				$('#items').append('<img src="/images/note.png"' + '" width="25px" height="25px"/> &nbsp;');
-			}
+				if (data.note == 1) {
+					$('#items').append("");
+					$('#items').append('<img src="/images/note.png"' + '" width="25px" height="25px"/> &nbsp;');
+				}
 
-			if (data.gown == 1) {
-				$('#items').append('<img src="/images/gown.png"' + '" width="25px" height="25px"/> &nbsp;');
-			}
+				if (data.gown == 1) {
+					$('#items').append('<img src="/images/gown.png"' + '" width="25px" height="25px"/> &nbsp;');
+				}
 
-			if (data.crown == 1) {
-				$('#items').append('<img src="/images/crown.png"' + '" width="25px" height="25px"/> &nbsp;');
-			}
-		}); // end of item display
-
-// Health Display
-		$.get('home/health').done(function(data) {
-			console.log('health = ' + data); // <== just a debug test
-		    $( "#health_bar" ).progressbar({
-
-		     	value: data * 10
-		    });
-		  });
-
-	} // end of keyup listener
+				if (data.crown == 1) {
+					$('#items').append('<img src="/images/crown.png"' + '" width="25px" height="25px"/> &nbsp;');
+				}
+			}); // end of item display
+		};
+		
+		} // end of keyup listener
+	});
 });
+
 </script>
 
 @stop
