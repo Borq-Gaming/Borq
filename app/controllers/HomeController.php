@@ -12,7 +12,7 @@ class HomeController extends BaseController {
 	public function start() 
 	{
 		if(Auth::user()) {
-			Auth::login();
+			Auth::logout();
 		}
 
 		$game = new User();
