@@ -17,7 +17,7 @@
 	</a></span>
 </div>
 
-<div class="container col-sm-12" id="game_box" style="display:none;">
+<div class="container col-sm-12" id="game_box" >
 	<div class="row">
 		<div class="col-sm-offset-1 col-sm-10 col-sm-offset-1 col-md-offset-3 col-md-6 col-md-offset-3">
 
@@ -64,7 +64,14 @@
 </div>
 
 <div class="form-group">
-	 <a href="{{{ action('HomeController@start') }}}" ><button class="btn btn-success" id="start">START</button></a>
+	 <!-- <a href="{{{ action('HomeController@start') }}}" ><button class="btn btn-success" id="start">START</button></a> -->
+	 <a href="{{{ action('HomeController@start') }}}">
+	 <img id="shield" height="125" width="125" src="/images/shield1 copy.png">
+	 </a>
+	 <!-- <img height="125" width="125" src="/images/shield2.jpg"><br>
+	 <img height="125" width="125" src="/images/shield3.jpeg">
+	 <img height="125" width="125" src="/images/shield4.jpg">
+	 <img height="125" width="125" src="/images/shield5.jpg"> -->
 </div>
 
 <div style="display: none" id="grabMe">
@@ -86,12 +93,12 @@ North, South, East or West" <br><br>
 
 
 // Unhide game_box
-$('#start').click(function(){
-	$('#game_box').toggle(1000);
-	$('#start').prop('disabled', true);
-	$('#start').animate({opacity: 0}, 750);
+// $('#start').click(function(){
+// 	$('#game_box').toggle(1000);
+// 	$('#start').prop('disabled', true);
+// 	$('#start').animate({opacity: 0}, 750);
 
-});
+// });
 
 $.get('home/health').done(function(data) {
 			console.log('health = ' + data); // <== just a debug test
@@ -187,4 +194,12 @@ $('#RealTextbox').keyup(function(e) {
 });
 </script>
 
+@stop
+
+@section('footer')
+<div id="footer">
+	<a href="https://github.com/Borq-Gaming/borq.dev">
+	<img src="/images/Borq-Gaming.png">
+	</a>
+</div>
 @stop
