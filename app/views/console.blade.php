@@ -94,6 +94,7 @@ $(document).ready(function() {
 	
 	// Start Game animation
 	$('#start').click(function(){
+		console.log("test");
 		$('#game_box').toggle(1000);
 		$.get('/start').done(function() {
 			console.log('Game is Started');
@@ -187,6 +188,7 @@ $(document).ready(function() {
 		
 		} // end of keyup listener
 	});
+
 });
 
 </script>
