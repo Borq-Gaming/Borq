@@ -61,25 +61,6 @@
 </div>
 
 <div class="form-group">
-<<<<<<< HEAD
-	 <!-- <a href="{{{ action('HomeController@start') }}}" ><button class="btn btn-success" id="start">START</button></a> -->
-	 <a href="{{{ action('HomeController@start') }}}">
-	 <img id="shield" height="125" width="125" src="/images/shield1 copy.png">
-	 </a>
-	 <!-- <img height="125" width="125" src="/images/shield2.jpg"><br>
-	 <img height="125" width="125" src="/images/shield3.jpeg">
-	 <img height="125" width="125" src="/images/shield4.jpg">
-	 <img height="125" width="125" src="/images/shield5.jpg"> -->
-</div>
-
-<div style="display: none" id="grabMe">
-<strong>Move:</strong> To make your way through the castle type command "move +<br>
-North, South, East or West" <br><br>
-<strong>Hit:</strong> When you encounter a guard and wish to engage, simply type the command "hit" <br><br>
-<strong>Use:</strong> When you have an item that is available for use, type the command "use + the item name"<br><br>
-<strong>Eat:</strong> When food is available in your items type the command "eat + the item name"<br><br>
-<strong>Take:</strong> To add an item to your inventory type command "take + item name"<br><br>
-=======
 
 	 <button class="btn btn-success" id="start">START</button>
 	
@@ -92,7 +73,6 @@ North, South, East or West" <br><br>
 	<strong>Move:</strong> To make your way through the castle type command "move +"<br>
 	North, South, East or West <br><br>
 	<strong>Take:</strong> To add an item to your inventory type command "take" + item name<br><br>
->>>>>>> a0f31b545e26b2c657b16ecb63a3d31a60bebbe0
 </div>
 
 
@@ -105,24 +85,7 @@ North, South, East or West" <br><br>
 
 
 // Unhide game_box
-<<<<<<< HEAD
-// $('#start').click(function(){
-// 	$('#game_box').toggle(1000);
-// 	$('#start').prop('disabled', true);
-// 	$('#start').animate({opacity: 0}, 750);
 
-// });
-
-$.get('home/health').done(function(data) {
-			console.log('health = ' + data); // <== just a debug test
-		    $( "#health_bar" ).progressbar({
-		      value: 10,
-		      max:10
-		    });
-		  });
-
-=======
->>>>>>> a0f31b545e26b2c657b16ecb63a3d31a60bebbe0
 $(document).ready(function() {
 	// Instruction Modal
 	var myModal2;

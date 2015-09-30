@@ -80,9 +80,16 @@ body {
 	max-width: 400px;
 	color: #333333;
 	font-weight: bold;
+	max-width: 400px;
 }
 
-
+/*health bar*/
+.ui-progressbar {
+	height: 2em;
+	text-align: left;
+	overflow: hidden;
+	border: ridge;
+	margin: 20px 10px 10px 575px;
 
 
 
