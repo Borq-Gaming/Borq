@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration {
 			$table->integer('health');
 			$table->integer('stealth');
 			$table->integer('armor')->nullable();
-			$table->string('apples')->nullable();
+			$table->string('apple')->nullable();
 			$table->string('bread')->nullable();
 			$table->string('sword')->nullable();
 			$table->string('key')->nullable();
