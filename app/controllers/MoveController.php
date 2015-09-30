@@ -70,7 +70,7 @@ class MoveController extends BaseController {
 	{
 		$next = $this->findCurrent();
 
-		$player = Auth::user()
+		$player = Auth::user();
 
 		// exepction for locked door
 		if ($player->player_location_id == 2) {
