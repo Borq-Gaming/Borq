@@ -27,6 +27,7 @@ class UseController extends BaseController {
 				if ($actionLocation == $current) {
 					$return = $action->result;
 					$this->clearItem($item1);
+					$this->updateDB($item1);
 				} else {
 					$return = "You can't do that here.";
 				}
@@ -80,6 +81,38 @@ class UseController extends BaseController {
 		$update = Auth::user();
 		$update->$item = NULL;
 		$update->save();
+	}
+
+	public function updateDB($item)
+	{
+		switch ($item) {
+			case 'key':
+				$update = Auth::user();
+				$update->access_x = 1;
+				$update->save();
+				break;
+			
+			case 'wine':
+				$update = Auth::user();
+				$count = $update->map->guards()->where('health', '>', 0)->count();
+
+				for ($i=0; $i < $count; $i++) { 
+					$guard = $update->map->guards()->where('health', '>', 0)->first();
+					$guard->health = 0;
+					$guard->save();
+				}
+				break;
+			
+			case 'lantern':
+				$update = Auth::user();
+				$update->$stealth = $update->stealth + 3;
+				$update->save();
+				break;
+			
+			default:
+				# code...
+				break;
+		}
 	}
 }
 

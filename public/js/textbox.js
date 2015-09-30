@@ -22,10 +22,12 @@
 					$('#FakeTextbox').text('');
 
 					//to call each turn
-					turnCheck();
-					locationDisplay();
-					imageDisplay();
-					itemDisplay();
+					setTimeout(function(){
+						turnCheck();
+						locationDisplay();
+						itemDisplay();
+					}, 100)
+
 				} else {
 					$('#FakeTextbox').html($(this).val());
 				}
@@ -160,6 +162,7 @@
 				console.log(data);	
 				// Display Name
 				$('#current_location').val(data.display_name);
+				imageDisplay();
 			});
 		};
 
