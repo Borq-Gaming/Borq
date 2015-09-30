@@ -67,13 +67,14 @@ body {
 }
 
 #current_location {
+	
 	border: ridge;
 	width: 90%;
 	max-width: 500px;
 
 }
 
-
+/*health bar*/
 .ui-widget-header {
 	background: #FF0000;
 	/*border: 1px solid #DDDDDD;*/
@@ -82,22 +83,64 @@ body {
 
 	color: #333333;
 	font-weight: bold;
+	max-width: 400px;
 }
 
+<<<<<<< HEAD
 .ui-progressbar {
 	max-width: 500px;
 	border: ridge;
 }
 
 #start {
+=======
+/*health bar*/
+.ui-progressbar {
+	height: 2em;
+	text-align: left;
+	overflow: hidden;
+	border: ridge;
+>>>>>>> master
 	margin: 20px 10px 10px 575px;
+	/*set the width on this and above*/
 }
+
 
 #instructions {
 	position: absolute;
     top: 0px;
     right: 20px;
 }
+
+/*#shield {
+	margin: 20px 10px 10px 550px;
+}*/
+
+/*#shield {
+	position: absolute;
+	top: 100px;
+	right: 90px;
+}*/
+
+#shield {
+	position: relative;
+	bottom: 450px;
+	left: 200px;
+	
+}
+
+/*.jBox-container {
+  background: #fff;
+  }*/
+
+  .jBox-container {
+  
+  }
+
+  #footer {
+  	position: relative;
+  	left: 450px;
+  }
 
 
 

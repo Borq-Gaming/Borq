@@ -34,7 +34,7 @@ class TurnController extends BaseController {
 			$room = Map::where("id", 22)->firstOrFail();
 			return $room->description;
 		} else {
-			return "not dead";
+			return false;
 		}
 	}
 
@@ -48,16 +48,21 @@ class TurnController extends BaseController {
 			->first();
 		if ($guard) { // if so
 			$stealth = $game->stealth;
+
 			if ($stealth == 0){
 				$stealth = 1;
 			}
+			
 			$chance = (5/$stealth) * 100;
 			$seen = mt_rand(1, 100);
+
 			if ($seen < $chance) {
 				$game->health = $game->health - 1;
+
 				if ($game->stealth != 0) {
 					$game->stealth = $game->stealth - 1;
 				}
+
 				$game->save();
 				return "You have been spotted and a guard attacks you. -1 Health -1 Stealth";
 			} else {
