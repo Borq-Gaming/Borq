@@ -135,8 +135,8 @@ $(document).ready(function() {
 		var imageDisplay = function() {
 				var background_image = 'url(/' + data.image + ')';
 				$('body').css('background-image', background_image);
-				});
-			};
+				};
+			});
 		};
 
 		// Item Icon Display
