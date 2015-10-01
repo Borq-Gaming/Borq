@@ -55,42 +55,38 @@ body {
 }
 
 #items {
-
 	background-color: white;
 	padding-top: 3px;
 	height: 35px;
 	margin: 0px 1px 0px 3px;
 	border: ridge;
 	max-width: 640px;
-
 }
 
 #current_location {
-	
 	border: ridge;
-	max-width: 400;
-	width:70%;
+	width: 90%;
+	max-width: 281px;
 }
 
 /*health bar*/
 .ui-widget-header {
 	background: #FF0000;
-	/*border: 1px solid #DDDDDD;*/
 	border: ridge;
-	max-width: 400px;
 	color: #333333;
 	font-weight: bold;
-	max-width: 400px;
+	max-width: 281px;
 }
 
 /*health bar*/
 .ui-progressbar {
 	height: 2em;
+	background: #808080;
+	max-width: 281px;
 	text-align: left;
 	overflow: hidden;
 	border: ridge;
-	margin: 20px 10px 10px 575px;
-	/*set the width on this and above*/
+
 }
 
 
@@ -100,33 +96,26 @@ body {
     right: 20px;
 }
 
-/*#shield {
-	margin: 20px 10px 10px 550px;
-}*/
 
-/*#shield {
-	position: absolute;
-	top: 100px;
-	right: 90px;
-}*/
-
-#shield {
+#start_container {
 	position: relative;
-	left: 360px;
+	margin-left: auto;
+	margin-right:auto;
+
 }
 
-/*.jBox-container {
-  background: #fff;
-  }*/
+.footer {
+	width: 100%;
+	height: 124px;
+	padding-top: 25px;
+	padding-bottom: 25px;
+}
 
-  .jBox-container {
-  
-  }
-
-  #footer {
-  	position: relative;
-  	left: 450px;
-  }
+.footer > .container > a > img {
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
+}
 
 
 
