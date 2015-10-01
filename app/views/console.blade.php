@@ -60,11 +60,11 @@
 	</div>
 </div>
 
-<div class="form-group container col-md-3 col-md-offset-4">
+<div class="form-group container col-sm-2 col-sm-offset-4">
 	<div id="start_container">	
 		<a type="submit" id="start"><img src="/images/shield1 copy.png" width="300" height="300"/></a>
 	</div>
-	 <!-- <button class="btn btn-success" id="start">START</button> -->
+
 </div>
 
 
@@ -97,6 +97,8 @@ $(document).ready(function() {
 	});
 	
 	// Start Game animation
+	$('#start_container').css('cursor', 'url(/images/open-dagger.png), auto');
+
 	$('#start').click(function(){
 		$('#game_box').toggle(1000);
 		$.get('/start').done(function() {
