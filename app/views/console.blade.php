@@ -60,7 +60,7 @@
 	</div>
 </div>
 
-<div class="form-group container col-md-3 col-md-offset-4">
+<div class="form-group container">
 	<div id="start_container">	
 		<a type="submit" id="start"><img src="/images/shield1 copy.png" width="300" height="300"/></a>
 	</div>
