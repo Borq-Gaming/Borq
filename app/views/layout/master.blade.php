@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     <link rel="stylesheet" type="text/css" href="/css/textbox.css">
     <link href="http://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+
     @yield('style')
     <title>@yield('title')</title>
 </head>
@@ -27,6 +29,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.6/angular.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <script src="http://code.jboxcdn.com/0.3.2/jBox.min.js"></script>
+<script src="js/jquery.magnific-popup.js"></script>
 @yield('script')
 
 @yield('footer')
