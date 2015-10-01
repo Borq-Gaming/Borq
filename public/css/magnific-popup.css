@@ -270,7 +270,7 @@ img.mfp-img {
   margin: 0 auto; }
 
 /* The shadow behind the image */
-.mfp-figure {
+/*.mfp-figure {
   line-height: 0; }
   .mfp-figure:after {
     content: '';
@@ -291,7 +291,7 @@ img.mfp-img {
     font-size: 12px;
     line-height: 14px; }
   .mfp-figure figure {
-    margin: 0; }
+    margin: 0; }*/
 
 .mfp-bottom-bar {
   margin-top: -36px;

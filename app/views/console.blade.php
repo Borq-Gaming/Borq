@@ -2,7 +2,7 @@
 
 @section('style')
 <link rel="stylesheet" href="/css/textbox.css">
-
+<link rel="stylesheet" href="/css/modal.css">
 @stop
 
 @section('content')
@@ -10,6 +10,9 @@
 <div id="borq_image">
 	<img src="/images/Borq.png" width="300" height="75" alt="borq logo"/>
 </div>
+<img src="/images/location.png"/>
+<img src="/images/health.png"/>
+<img src="/images/inventory.png"/>
 
 <!-- <div id="instructions">
 	<a href="" span style="cursor: pointer" id="myModal2">
@@ -17,11 +20,18 @@
 	</a></span>
 </div> -->
 
+<!-- <div id="instructions">
+	<a class="image-popup-no-margins" href="/images/scroll1 copy.png">
+		<img src="/images/scroll-paper-parchment-border-background-leather copy.png" width="250" height="75">
+	</a>
+</div> -->
+
 <div id="instructions">
-<a class="image-popup-no-margins" href="/images/scroll1 copy.png">
-	<img src="/images/scroll-paper-parchment-border-background-leather copy.png" width="250" height="75">
-</a>
+	<a class="image-popup-no-margins" href="/images/kc-old-scroll-md1 copy.png">
+		<img src="/images/scroll-paper-parchment-border-background-leather copy.png" width="250" height="75">
+	</a>
 </div>
+
 
 <div class="container col-sm-12" id="game_box" style="display: none;">
 	<div class="row">
