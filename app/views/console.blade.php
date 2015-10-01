@@ -98,10 +98,9 @@ $(document).ready(function() {
 	
 	// Start Game animation
 	$('#start').click(function(){
-		console.log("test");
 		$('#game_box').toggle(1000);
 		$.get('/start').done(function() {
-			console.log('Game is Started');
+			console.log('Game Started');
 		});
 		$('#start').prop('disabled', true);
 		$('#start').animate({opacity: 0}, 750);
@@ -111,9 +110,9 @@ $(document).ready(function() {
 
 	// Health Bar
 	$.get('home/health').done(function(data) {
+	    	console.log(data);
 	    $( "#health_bar" ).progressbar({
-	      value: 10,
-	      max:10
+		      value: data * 10
 	    });
 	 });
 
