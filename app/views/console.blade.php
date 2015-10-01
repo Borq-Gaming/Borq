@@ -73,12 +73,14 @@
 	
 
 <div style="display: none;" id="grabMe">
-	<strong>Hit:</strong> When you encounter a guard and wish to engage simply type the command "hit" <br><br>
-	<strong>Use:</strong> When you have an item is available for use type command "use + the item name"<br><br>
-	<strong>Eat:</strong> When food is available in your items type command "eat + the item name"<br><br>
-	<strong>Move:</strong> To make your way through the castle type command "move +"<br>
-	North, South, East or West <br><br>
-	<strong>Take:</strong> To add an item to your inventory type command "take" + item name<br><br>
+	<strong>Objective:</strong> Explore your way through the castle and steal the king's crown.<br>
+	<br>
+	<strong>Commands</strong><br>
+	<strong>Hit</strong> - When you encounter a guard and wish to engage simply type the command "hit guard" <br>
+	<strong>Use</strong> - When you have an item is available for use type command "use [item] on [thing] (e.g. use key on door)"<br>
+	<strong>Eat</strong> - When food is available in your items type command "eat [food] (e.g. eat apple)"<br>
+	<strong>Move</strong> - To make your way through the castle type command "move [direction]" (e.g. move north)<br>
+	<strong>Take</strong> - To add an item to your inventory type command "take [item]" (e.g. take crown)<br>
 </div>
 
 
@@ -94,7 +96,7 @@ $(document).ready(function() {
 	var myModal2;
 	myModal2 = $('#myModal2').jBox('Modal', {
 
-		title: 'Guide your way through the palace to steal the king crown using these available commands!',
+		title: 'Instructions',
 		content: $('#grabMe')
 	});
 	
