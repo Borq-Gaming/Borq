@@ -31,7 +31,9 @@
 						turnCheck();
 						locationDisplay();
 						itemDisplay();
-						healthUpdate();
+						setTimeout(function(){
+							healthUpdate();
+						}, 100)
 					}, 100)
 
 				} else {
@@ -40,13 +42,13 @@
 			});
 			$('#RealTextbox').focus();
 		});
-
+		var firstAction; // to make global
 		function userInput() {
 			console.log("testtest");
 			var input = $("#RealTextbox").val();
 			console.log(input);
 			var selectInput = input.split (' ');
-			var firstAction = selectInput[0];
+			firstAction = selectInput[0];
 			var secondAction = selectInput[1];
 			if (selectInput[2]) {
 				console.log(selectInput);
@@ -56,8 +58,10 @@
 			}
 		}
 		function turnCheck() {
-			console.log("turncheck");
-			$http.get("turn/check").then(function(data) {
+			console.log(firstAction);
+			$http.post("turn/check", {
+				lastcommand: firstAction
+			}).then(function(data) {
 				$log.info("Dat Info was sent to the server successfully!");
 				console.log(data);
 				display(data.data);
@@ -168,12 +172,12 @@
 				console.log(data);	
 				// Display Name
 				$('#current_location').val(data.display_name);
-				imageDisplay();
+				imageDisplay(data);
 			});
 		};
 
 		// Background Image Display
-		function imageDisplay() {
+		function imageDisplay(data) {
 			var background_image = 'url(/' + data.image + ')';
 			$('body').css('background-image', background_image);
 		};
