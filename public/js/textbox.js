@@ -5,9 +5,14 @@
 
 	app.controller("textController", ["$log", "$http", function($log, $http) {
 		$(document).ready(function() {
-			$('#FakeTextbox, #Score, #PastCommands').click(function() {
+
+			// refocus
+			$('body').on("click", function() {
+				console.log("focus")
 				$('#RealTextbox').focus();
 			});
+
+			// console
 			$('#RealTextbox').keyup(function(e) {
 				var code = (e.keyCode ? e.keyCode : e.which);
 				// Enter key?
@@ -26,6 +31,7 @@
 						turnCheck();
 						locationDisplay();
 						itemDisplay();
+						healthUpdate();
 					}, 100)
 
 				} else {
@@ -171,6 +177,16 @@
 			var background_image = 'url(/' + data.image + ')';
 			$('body').css('background-image', background_image);
 		};
+
+		// update health
+		function healthUpdate(){
+			$.get('home/health').done(function(data) {
+			    	console.log(data);
+			    $( "#health_bar" ).progressbar({
+				      value: data * 10
+			    });
+			 });
+		}
 
 		// Item Icon Display
 		function itemDisplay() {

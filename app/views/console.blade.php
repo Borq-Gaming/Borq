@@ -8,12 +8,12 @@
 @section('content')
 
 <div id="borq_image">
-	<img src="/images/Borq.png" width="300" height="75" alt="borq logo"/>
+	<img src="/images/Borq.png" alt="borq logo"/>
 </div>
 
 <div id="instructions">
 	<a href="" span style="cursor: pointer" id="myModal2">
-	<img src="/images/scroll-paper-parchment-border-background-leather copy.png" width="250" height="75"/>
+	<img src="/images/instructions.png">
 	</a></span>
 </div>
 
@@ -51,7 +51,7 @@
 
 							<div id="PastCommands"></div>
 								> <span id="FakeTextbox"></span><span id="Score">_</span>
-									<input type="text" id="RealTextbox"/>
+									<input type="text" id="RealTextbox" autofocus>
 						</div>
 					</div>
 				</div>
@@ -108,104 +108,6 @@ $(document).ready(function() {
 
 	});
 
-	// Health Bar
-	$.get('home/health').done(function(data) {
-	    	console.log(data);
-	    $( "#health_bar" ).progressbar({
-		      value: data * 10
-	    });
-	 });
-
-
-	// Game Actions and Display Results
-	// TIMOTHY -->
-	// TODO:  move locationDisplay(), imageDisplay(), itemDisplay(), to keyListener function
-
-	$('#RealTextbox').keyup(function(e) {
-		var code = (e.keyCode ? e.keyCode : e.which);
-		// Enter key
-		if(code == 13) {
-
-			// Display Functions
-			var locationDisplay = function() {
-				$.get('move/index').done(function(data) {
-				// Display Name
-					$('#current_location').val(data.display_name);
-				});
-			};
-
-			// Background Image Display
-			var imageDisplay = function() {
-				var background_image = 'url(/' + data.image + ')';
-				$('body').css('background-image', background_image);
-			};
-
-			// Display Functions
-			var locationDisplay = function() {
-				$.get('move/index').done(function(data) {
-				console.log(data);	
-				// Display Name
-				$('#current_location').val(data.display_name);
-				});
-			};
-			
-			// Background Image Display
-			var imageDisplay = function() {
-				var background_image = 'url(/' + data.image + ')';
-				$('body').css('background-image', background_image);
-			};
-	
-
-			// Item Icon Display
-			var itemDisplay = function() {
-				$.get('home/items').done(function(data) {
-					console.log(data);
-					$('#items').empty();
-					
-					if (data.key == 1) {
-						$('#items').append('<img src="/images/key.png"' + '" width="25px" height="25px"/> &nbsp;');
-					}
-					
-					if (data.sword == 1) {
-						$('#items').append('<img src="/images/sword.png"' + '" width="25px" height="25px"/> &nbsp;');
-					}
-					
-					if (data.armor == 1) {
-						$('#items').append('<img src="/images/armor.png"' + '" width="25px" height="25px"/> &nbsp;');
-					}
-					
-					if (data.lantern == 1) {
-						$('#items').append('<img src="/images/lantern.png"' + '" width="25px" height="25px"/> &nbsp;');
-					}
-					
-					if (data.apple == 1) {
-						$('#items').append('<img src="/images/apple.png"' + '" width="25px" height="25px"/> &nbsp;');
-					}
-					
-					if (data.bread == 1) {
-						$('#items').append('<img src="/images/bread.png"' + '" width="25px" height="25px"/> &nbsp;');
-					}
-					
-					if (data.wine == 1) {
-						$('#items').append('<img src="/images/wine.png"' + '" width="25px" height="25px"/> &nbsp;');
-					}
-
-					if (data.note == 1) {
-						$('#items').append('<img src="/images/note.png"' + '" width="25px" height="25px"/> &nbsp;');
-					}
-
-					if (data.gown == 1) {
-						$('#items').append('<img src="/images/gown.png"' + '" width="25px" height="25px"/> &nbsp;');
-					}
-					if (data.crown == 1) {
-						$('#items').append('<img src="/images/crown.png"' + '" width="25px" height="25px"/> &nbsp;');
-					}
-
-				}); // end of item display
-			};
-		} // end of keyup listener
-	});
-
 });
 
 </script>
@@ -216,7 +118,7 @@ $(document).ready(function() {
 <footer class="footer">
 	<div class="container">
 		<a href="https://github.com/Borq-Gaming/borq.dev">
-		<img src="/images/Borq-Gaming.png" width="300" height="relative">
+		<img src="/images/about.png">
 		</a>
 	</div>
 </footer>
