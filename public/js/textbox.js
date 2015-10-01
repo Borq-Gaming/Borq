@@ -5,9 +5,14 @@
 
 	app.controller("textController", ["$log", "$http", function($log, $http) {
 		$(document).ready(function() {
-			$('#FakeTextbox, #Score, #PastCommands').click(function() {
+
+			// refocus
+			$('body').on("click", function() {
+				console.log("focus")
 				$('#RealTextbox').focus();
 			});
+
+			// console
 			$('#RealTextbox').keyup(function(e) {
 				var code = (e.keyCode ? e.keyCode : e.which);
 				// Enter key?
@@ -22,20 +27,28 @@
 					$('#FakeTextbox').text('');
 
 					//to call each turn
-					turnCheck();
+					setTimeout(function(){
+						turnCheck();
+						locationDisplay();
+						itemDisplay();
+						setTimeout(function(){
+							healthUpdate();
+						}, 100)
+					}, 100)
+
 				} else {
 					$('#FakeTextbox').html($(this).val());
 				}
 			});
 			$('#RealTextbox').focus();
 		});
-
+		var firstAction; // to make global
 		function userInput() {
 			console.log("testtest");
 			var input = $("#RealTextbox").val();
 			console.log(input);
 			var selectInput = input.split (' ');
-			var firstAction = selectInput[0];
+			firstAction = selectInput[0];
 			var secondAction = selectInput[1];
 			if (selectInput[2]) {
 				console.log(selectInput);
@@ -45,8 +58,10 @@
 			}
 		}
 		function turnCheck() {
-			console.log("turncheck");
-			$http.get("turn/check").then(function(data) {
+			console.log(firstAction);
+			$http.post("turn/check", {
+				lastcommand: firstAction
+			}).then(function(data) {
 				$log.info("Dat Info was sent to the server successfully!");
 				console.log(data);
 				display(data.data);
@@ -137,13 +152,6 @@
 			});
 		}
 
-		// $http.get('home/health').then(function(data) {
-		// 	console.log('health = ' + data); // <== just a debug test
-		//     $( "#health_bar" ).progressbar({
-		//       val: data
-		//     });
-		//   });
-
 		function ajaxUse(value1, value2) {
 			$http.post("use/stuff", {
 				item1: value1,
@@ -157,5 +165,81 @@
 				$log.debug(response);
 			});
 		}
+
+		// Display Functions
+		function locationDisplay() {
+			$.get('move/index').done(function(data) {
+				console.log(data);	
+				// Display Name
+				$('#current_location').val(data.display_name);
+				imageDisplay(data);
+			});
+		};
+
+		// Background Image Display
+		function imageDisplay(data) {
+			var background_image = 'url(/' + data.image + ')';
+			$('body').css('background-image', background_image);
+		};
+
+		// update health
+		function healthUpdate(){
+			$.get('home/health').done(function(data) {
+			    	console.log(data);
+			    $( "#health_bar" ).progressbar({
+				      value: data * 10
+			    });
+			 });
+		}
+
+		// Item Icon Display
+		function itemDisplay() {
+			$.get('home/items').done(function(data) {
+				console.log(data);
+
+				$('#items').empty();
+
+				if (data.key == 1) {
+					$('#items').append('<img src="/images/key.png"' + '" width="25px" height="25px"/> &nbsp;');
+				}
+
+				if (data.sword == 1) {
+					$('#items').append('<img src="/images/sword.png"' + '" width="25px" height="25px"/> &nbsp;');
+				}
+
+				if (data.armor == 1) {
+					$('#items').append('<img src="/images/armor.png"' + '" width="25px" height="25px"/> &nbsp;');
+				}
+
+				if (data.lantern == 1) {
+					$('#items').append('<img src="/images/lantern.png"' + '" width="25px" height="25px"/> &nbsp;');
+				}
+
+				if (data.apple == 1) {
+					$('#items').append('<img src="/images/apple.png"' + '" width="25px" height="25px"/> &nbsp;');
+				}
+
+				if (data.bread == 1) {
+					$('#items').append('<img src="/images/bread.png"' + '" width="25px" height="25px"/> &nbsp;');
+				}
+
+				if (data.wine == 1) {
+					$('#items').append('<img src="/images/wine.png"' + '" width="25px" height="25px"/> &nbsp;');
+				}
+
+				if (data.note == 1) {
+					$('#items').append("");
+					$('#items').append('<img src="/images/note.png"' + '" width="25px" height="25px"/> &nbsp;');
+				}
+
+				if (data.gown == 1) {
+					$('#items').append('<img src="/images/gown.png"' + '" width="25px" height="25px"/> &nbsp;');
+				}
+
+				if (data.crown == 1) {
+					$('#items').append('<img src="/images/crown.png"' + '" width="25px" height="25px"/> &nbsp;');
+				}
+			}); // end of item display
+		};
 	}]);
 })();  

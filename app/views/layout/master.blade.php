@@ -29,5 +29,6 @@
 <script src="http://code.jboxcdn.com/0.3.2/jBox.min.js"></script>
 @yield('script')
 
+@yield('footer')
 </body>
 </html>

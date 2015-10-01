@@ -2,13 +2,15 @@
 
 class TurnController extends BaseController {
 
-	public function getCheck()
+	public function postCheck()
 	{
+		$lastCommand = Input::get("lastcommand");
+
 		if ($this->isDead()) {
 			$return = $this->isDead();
 			return Response::json($return);
 		}
-		if ($this->isSeen()){
+		if ($lastCommand != "hit"){
 			$return = $this->isSeen();
 			return Response::json($return);
 		}
@@ -34,7 +36,7 @@ class TurnController extends BaseController {
 			$room = Map::where("id", 22)->firstOrFail();
 			return $room->description;
 		} else {
-			return "not dead";
+			return false;
 		}
 	}
 
@@ -48,18 +50,24 @@ class TurnController extends BaseController {
 			->first();
 		if ($guard) { // if so
 			$stealth = $game->stealth;
+
 			if ($stealth == 0){
 				$stealth = 1;
 			}
+			
 			$chance = (5/$stealth) * 100;
 			$seen = mt_rand(1, 100);
+
 			if ($seen < $chance) {
+				$before = $game->health;
 				$game->health = $game->health - 1;
+				$after = $game->health;
 				if ($game->stealth != 0) {
 					$game->stealth = $game->stealth - 1;
 				}
+
 				$game->save();
-				return "You have been spotted and a guard attacks you. -1 Health -1 Stealth";
+				return "You have been spotted and a guard attacks you. -1 Health -1 Stealth {$before} - {$after}";
 			} else {
 				return "The guards don't see you, but you might want to hurry.";
 			}
