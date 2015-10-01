@@ -104,13 +104,18 @@ $(document).ready(function() {
 	$('#start_container').css('cursor', 'url(/images/cursor-sword.png), auto');
 
 	$('#start').click(function(){
-		$('#game_box').toggle(1000);
+		
+		$('#game_box').fadeIn(1200);
 		$.get('/start').done(function() {
 			console.log('Game Started');
 		});
+		$('#start_container').animate({
+			top: '500px',
+			opacity: 0
+			}, 300);
+		$('#start_container').hide(300);
 		$('#start').prop('disabled', true);
-		$('#start').animate({opacity: 0}, 750);
-		$('#start').hide();
+
 
 	});
 
