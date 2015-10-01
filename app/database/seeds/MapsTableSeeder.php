@@ -24,7 +24,7 @@ class MapsTableSeeder extends Seeder {
 			'location_name'		=> 'southeast_tower_outer',
 			'display_name'		=> 'South East Guard Tower',
 			'image'				=> 'images/areas/tower.png',
-			'description'		=> 'You see a door east of you in the bast of the tower.  You hear horses nickering from the direction of the building to the north.  You think that building must be the stables.',
+			'description'		=> 'You see a door east of you in the base of the tower.  You hear horses nickering from the direction of the building to the north.  You think that building must be the stables.',
 		]);
 
 	// South East Tower (inner)
@@ -162,7 +162,7 @@ class MapsTableSeeder extends Seeder {
 			'location_name'		=> 'wizard_tower',
 			'display_name' 		=> 'Wizard Tower',
 			'image'				=> 'images/areas/wizard.png',
-			'description'		=> 'In this arcane room, you notice a vast array of strange and exotic items. You are afraid to even touch them, but a few bottles draw your eye. Youll gonna touch them anyway, wont you...',
+			'description'		=> 'In this arcane room, you notice a vast array of strange and exotic items. You are afraid to even touch them, but a few bottles draw your eye. You were gonna touch them anyway, right? ...',
 			'objects'			=> 'potion_invisibility, potion_strength, potion_regeneration',
 		]);
 

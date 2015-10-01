@@ -101,7 +101,7 @@ $(document).ready(function() {
 	});
 	
 	// Start Game animation
-	$('#start_container').css('cursor', 'url(/images/sword.png), auto');
+	$('#start_container').css('cursor', 'url(/images/cursor-sword.png), auto');
 
 	$('#start').click(function(){
 		$('#game_box').toggle(1000);
