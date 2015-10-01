@@ -11,6 +11,15 @@ class EatController extends BaseController {
 	{
 		$food = strtolower(Input::get("food"));
 
+		if ($food == "shoe") {
+			$update = Auth::user();
+			$update->health = 10;
+			$update->save();
+
+			$return = "Congrats, you get all your HP back, now you won't look dumb losing your own game. You also only have one shoe now, so there is that...";
+			return Response::json($return);
+		}
+
 		// check if item is edible
 		if ($this->canEat($food)) {
 			// fetch health
