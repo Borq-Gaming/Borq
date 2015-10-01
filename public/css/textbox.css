@@ -101,8 +101,7 @@ body {
 
 #start_container {
 	width: 300px;
-	margin: 5px auto;
-
+	margin: 150px auto 15px auto;
 }
 
 .footer {
@@ -127,6 +126,11 @@ body {
 
 	#borq_image {
 		width: 209px;
+	}
+
+	#start_container {
+		width: 300px;
+		margin: 25px auto;
 	}
 }
 
