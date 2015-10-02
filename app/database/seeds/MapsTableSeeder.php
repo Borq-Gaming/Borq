@@ -14,7 +14,7 @@ class MapsTableSeeder extends Seeder {
 			'location_name'		=> 'courtyard',
 			'display_name'		=> 'Castle Courtyard',
 			'image'				=> 'images/areas/courtyard.png',
-			'description'		=> 'You see the courtyard before you.  To the east is a tower entrance.  To west is another tower entrance.  North of you, you see a large statue in a fountain (thats a strange fixture for a castle), and beyond that, the entrance to the castle.  It looks like the entrance is guarded by 2 soldiers.',
+			'description'		=> 'You find yourself in the courtyard again. To the east and west are tower entrances. North of you, that fountain is still there (serious, what is up with that thing?), and beyond that, the entrance to the castle.  It the entrance is still guarded by 2 soldiers.',
 		]);
 
 	// South East Tower (outer)
@@ -294,7 +294,7 @@ class MapsTableSeeder extends Seeder {
 	// North West Tower Navigation
 		$northWestTower->south_map_id = $westWall->id;
 		$northWestTower->east_map_id = $outerReceiving->id;
-		$northWestTower->west_map_id = $wizardTower->id;
+		// $northWestTower->west_map_id = $wizardTower->id;
 		$northWestTower->save();
 
 	// Kitchen Navigation
