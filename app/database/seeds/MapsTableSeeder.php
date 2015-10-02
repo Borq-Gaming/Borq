@@ -43,7 +43,7 @@ class MapsTableSeeder extends Seeder {
 			'location_name'		=> 'southwest_tower_outer',
 			'display_name'		=> 'South West Guard Tower',
 			'image'				=> 'images/areas/tower.png',
-			'description'		=> 'From your location, you see a door to the guard tower on the west side of the courtyard. North of your location, you see a fortified building. You hear some clamoring sounds and raucous singing.  Its either soldiers having fun or M*A*S*H is on. Its probably the former.',
+			'description'		=> 'From your location, you see a door to the guard tower on the west side of the courtyard. North of your location, you see a fortified building. You hear some clamoring sounds and raucous singing.  Its either soldiers having fun or M*A*S*H is on. Its probably the former. Lost in your contemplations, you trip over a lantern. Wonder who left it there...',
 		]);
 
 	// South West Tower (inner)
@@ -213,7 +213,7 @@ class MapsTableSeeder extends Seeder {
 			'location_name'		=> 'window',
 			'image'				=> 'images/areas/window-exit.png',
 			'display_name'		=> 'Out the Window',
-			'description'		=> 'You take a running leap out the window. It is then that you realize you are quite a ways up in the air. You revel in your few seconds of flight. Thankfully you already won, nothing can take change that. <br><br>---Credits---<br>Developers:<br>Timothy Birrell<br>Matt Reat<br>David Rodrigues<br><br>With thanks to Codeup', // write content
+			'description'		=> 'You take a running leap out the window. It is then that you realize you are quite a ways up in the air. You revel in your few seconds of flight. Thankfully you already won, nothing can take change that. <br><br>---Credits---<br>Developers:<br>Timothy Birrell<br>Matt Reat<br>David Rodriguez<br><br>With thanks to Codeup', // write content
 
 		]);
 		
@@ -222,7 +222,7 @@ class MapsTableSeeder extends Seeder {
 			'location_name'		=> 'gameover',
 			'image'				=> 'images/areas/castle-outer.png',
 			'display_name'		=> 'Game Over',
-			'description'		=> 'You gave it your all, but that was not enough. You are destined to hang in the morning. Some how you escape and run away or something, idk. Deus ex Machina can only be abused so much. <br><br>---Credits---<br>Developers:<br>Timothy Birrell<br>Matt Reat<br>David Rodrigues<br><br>With thanks to Codeup', // write content
+			'description'		=> 'You gave it your all, but that was not enough. You are destined to hang in the morning. Some how you escape and run away or something, idk. Deus ex Machina can only be abused so much. <br><br>---Credits---<br>Developers:<br>Timothy Birrell<br>Matt Reat<br>David Rodriguez<br><br>With thanks to Codeup', // write content
 
 		]);
 

@@ -67,7 +67,7 @@ class TurnController extends BaseController {
 				}
 
 				$game->save();
-				return "You have been spotted and a guard attacks you. -1 Health -1 Stealth {$before} - {$after}";
+				return "You have been spotted and a guard attacks you. -1 Health -1 Stealth";
 			} else {
 				return "The guards don't see you, but you might want to hurry.";
 			}

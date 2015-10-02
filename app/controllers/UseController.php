@@ -16,7 +16,7 @@ class UseController extends BaseController {
 		if ($this->doesHave($item1)) {
 			// check if object 2 is usable (hit use db and check  col 2)
 			// check if objects are compatible
-			if ($this->canUse($item2)) {
+			if ($this->canUse($item1, $item2)) {
 				$action = Action::where("item_1", $item1)->firstOrFail();
 				$actionLocation = $action->location;
 
@@ -63,13 +63,13 @@ class UseController extends BaseController {
 		}
 	}
 
-	public function canUse($item)
+	public function canUse($item1, $item2)
 	{
 		// is it useable
-		$useable = Action::firstOrFail();
+		$useable = Action::where("item_1", $item1)->firstOrFail();
 		$useable = $useable->item_2;
 
-		if ($useable == $item) {
+		if ($useable == $item2) {
 			return true;
 		} else {
 			return false;
@@ -105,7 +105,7 @@ class UseController extends BaseController {
 			
 			case 'lantern':
 				$update = Auth::user();
-				$update->$stealth = $update->stealth + 3;
+				$update->stealth = $update->stealth + 3;
 				$update->save();
 				break;
 			

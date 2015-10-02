@@ -19,14 +19,14 @@ class ActionsTableSeeder extends Seeder {
 		$lantern_hay->item_1	= 'lantern';
 		$lantern_hay->item_2	= 'hay';
 		$lantern_hay->location	= 7;
-		$lantern_hay->result	= 'You stick some hay into the lantern. As it catches fire you drop it all on the rest of the hay, the fire is spreading quickly and you can hear the gaurds coming to invesigate.';
+		$lantern_hay->result	= 'You stick some hay into the lantern. As it catches fire you drop it all on the rest of the hay, the fire is spreading quickly and you can hear the gaurds coming to invesigate. You should sneak off while they are disracted.';
 		$lantern_hay->save();
 
 		$wine_guard = new Action();
-		$wine_guard->item_1	= 'wine';
-		$wine_guard->item_2	= 'guard';
+		$wine_guard->item_1		= 'wine';
+		$wine_guard->item_2		= 'guard';
 		$wine_guard->location	= 20;
-		$wine_guard->result	= 'You quietly place the wine against the wall where the gaurds can see it. After a little they pick it up, and being bored, start to drink. A few moments later they sucumb to their fatigue and fall into a drunken stupor';
+		$wine_guard->result		= 'You quietly place the wine against the wall where the gaurds can see it. After a little they pick it up, and being bored, start to drink. A few moments later they sucumb to their fatigue and fall into a drunken stupor';
 		$wine_guard->save();
 
 	}
