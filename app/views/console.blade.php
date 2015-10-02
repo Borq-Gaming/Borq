@@ -2,7 +2,6 @@
 
 @section('style')
 <link rel="stylesheet" href="/css/textbox.css">
-<link rel="stylesheet" href="/css/modal.css">
 @stop
 
 @section('content')
@@ -11,22 +10,12 @@
 	<img src="/images/Borq.png" alt="borq logo"/>
 </div>
 
-<!-- <img src="/images/location.png"/>
-<img src="/images/health.png"/>
-<img src="/images/inventory.png"/> -->
 
 <div id="instructions">
 	<a href="" span style="cursor: pointer" id="myModal2">
 	<img src="/images/instructions.png">
 	</a></span>
 </div>
-
-<!-- REVISED INSTRUCTION MODAL AS AN IMAGE -->
-<!-- <div id="instructions">
-	<a class="image-popup-no-margins" href="/images/kc-old-scroll-md1 copy.png">
-		<img src="/images/instructions.png" width="250" height="75">
-	</a>
-</div> -->
 
 
 <div class="container col-sm-12" id="game_box" style="display: none;">
@@ -35,14 +24,18 @@
 
 			<div class="row">
 				<div id="location" class="col-sm-6">
-					<!-- <img src="/images/location.png"/> -->
-					<label class="label" id="location_label" for="location">Location</label></br>
+					<div id="label_location">
+					<img src="/images/location4.png" width="225" height="55"/>
+					</div>
+					<!-- <label class="label" id="location_label" for="location">Location</label></br> -->
 					<input id="current_location" disabled>
 				</div>
 
 				<div id="health" class="col-sm-6">
-					<!-- <img src="/images/health.png"/> -->
-					<label class="label" for="health">Health</label>
+					<div id="label_health">
+						<img src="/images/health4.png" width="225" height="50"/>
+					</div>
+					<!-- <label class="label" for="health">Health</label> -->
 					<div id="health_bar"></div>
 				</div>
 
@@ -51,8 +44,10 @@
 			<div class='row'>
 				<div class='form-group col-sm-12'>
 					<div name="items" for="items">
-						<!-- <img src="/images/inventory.png"/> -->
-						<label class="label" class="form-group" id="item_label" name="items">Inventory</label>
+						<div id="label_items">
+						<img src="/images/inventory4.png" width="225" height="55" />
+						</div>
+						<!-- <label class="label" class="form-group" id="item_label" name="items">Inventory</label> -->
 						<div id='items'></div>
 					</div>
 				</div>
