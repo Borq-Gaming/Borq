@@ -146,7 +146,7 @@ class HitController extends BaseController {
 		$update->health = $this->hp;
 		$update->save();
 
-		$guard = $update->map->guards()->where('health', '>', 0)->first();
+		$guard = $update->map->guards()->where('health', '>', 0)->where('user_id', Auth::id())->first();
 		$guard->health = $this->guardHp;
 		$guard->save();
 
