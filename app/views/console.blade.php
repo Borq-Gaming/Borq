@@ -73,11 +73,13 @@
 	</div>
 </div>
 
+
 <div class="form-group container">
+
 	<div id="start_container">	
 		<a type="submit" id="start"><img src="/images/shield1 copy.png" width="300" height="300"/></a>
 	</div>
-	 <!-- <button class="btn btn-success" id="start">START</button> -->
+
 </div>
 
 
@@ -126,18 +128,31 @@ $(document).ready(function() {
 		content: $('#grabMe')
 	});
 	
+	$.get('/start').done(function(){
+		console.log('Game Initialized');
+	});
+
 	// Start Game animation
+	$('#start_container').css('cursor', 'url(/images/cursor-sword.png), auto');
+
 	$('#start').click(function(){
-		$('#game_box').toggle(1000);
-		$.get('/start').done(function() {
-			console.log('Game Started');
-		});
-		$('#start').prop('disabled', true);
-		$('#start').animate({opacity: 0}, 750);
-		$('#start').hide();
+		
+		var gameBox = function () {
+			$('#game_box').fadeIn(800);
+		};
+
+		var startContainer = function() {
+			$('#start_container').fadeOut(700);
+			$('#start').prop('disabled', true);
+		};
+
+		startContainer();
+		setTimeout(gameBox, 800);
 
 	});
 
+	
+	
 });
 
 </script>
