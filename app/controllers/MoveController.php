@@ -57,6 +57,17 @@ class MoveController extends BaseController {
 	public function postNorth()
 	{
 		$next = $this->findCurrent();
+
+		$player = Auth::user();
+
+		// exepction for winning
+		if ($player->player_location_id == 20) {
+			// check if locked
+			if (!$player->crown){ // if does not have crown
+				$return = "Why would you jump out the window without the crown?";
+				return Response::json($return);
+			}
+		}
 		$this->nextRoom = $next->north_map_id;
 		return $this->updateLocation($next);
 	}
