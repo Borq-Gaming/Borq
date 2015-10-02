@@ -1,5 +1,9 @@
 @extends('layout.master')
 
+@section('title')
+Borq Gaming
+@stop
+
 @section('style')
 <link rel="stylesheet" href="/css/textbox.css">
 @stop
@@ -60,7 +64,7 @@
 						<div id="textBox">
 
 							<div id="PastCommands">
-								It started out as a drunk boast, or something like that. In the grand scheme of things, it doesn't really matter. What matters is that you are here, and you are trying to steal the king's crown. You are having second thoughts as you aproach the castle. But you said you would, so what can you do? You've heard that the crown is kept in the king's sleeping chamber when he is not wearing it. Its a quarter past really late, so thats where you decide to look for it. Now to just find your way there. <br><br>
+								It started out as a drunk boast, or something like that. In the grand scheme of things, it doesn't really matter. What matters is that you are here, and you are trying to steal the king's crown. You are having second thoughts as you approach the castle. But you said you would, so what can you do? You've heard that the crown is kept in the king's sleeping chamber when he is not wearing it. Its a quarter past really late, so thats where you decide to look for it. Now to just find your way there. <br><br>
 								You see the courtyard before you.  To the east is a tower entrance.  To the west is another tower entrance.  North of you, you see a large statue in a fountain (thats a strange fixture for a castle), and beyond that, the entrance to the castle.  It looks like the entrance is guarded by 2 soldiers.
 							</div>
 								> <span id="FakeTextbox"></span><span id="Score">_</span>

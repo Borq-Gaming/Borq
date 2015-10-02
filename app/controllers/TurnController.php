@@ -21,8 +21,7 @@ class TurnController extends BaseController {
 			$return = $this->isSeen();
 			return Response::json($return);
 		}
-		$return = "broke everything";
-		return Response::json($return);
+		
 	}
 
 	public function sendBack($thing)
