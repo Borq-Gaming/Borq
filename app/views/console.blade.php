@@ -100,25 +100,31 @@ $(document).ready(function() {
 		content: $('#grabMe')
 	});
 	
+	$.get('/start').done(function(){
+		console.log('Game Initialized');
+	});
+
 	// Start Game animation
 	$('#start_container').css('cursor', 'url(/images/cursor-sword.png), auto');
 
 	$('#start').click(function(){
 		
-		$('#game_box').fadeIn(1200);
-		$.get('/start').done(function() {
-			console.log('Game Started');
-		});
-		$('#start_container').animate({
-			top: '500px',
-			opacity: 0
-			}, 300);
-		$('#start_container').hide(300);
-		$('#start').prop('disabled', true);
+		var gameBox = function () {
+			$('#game_box').fadeIn(800);
+		};
 
+		var startContainer = function() {
+			$('#start_container').fadeOut(700);
+			$('#start').prop('disabled', true);
+		};
+
+		startContainer();
+		setTimeout(gameBox, 800);
 
 	});
 
+	
+	
 });
 
 </script>
