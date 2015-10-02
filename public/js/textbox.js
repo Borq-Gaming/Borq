@@ -6,12 +6,14 @@
 	app.controller("textController", ["$log", "$http", function($log, $http) {
 		$(document).ready(function() {
 
+
 			// refocus
 			$('body').on("click", function() {
 				console.log("focus")
 				$('#RealTextbox').focus();
 			});
 
+			
 			// console
 			$('#RealTextbox').keyup(function(e) {
 				var code = (e.keyCode ? e.keyCode : e.which);

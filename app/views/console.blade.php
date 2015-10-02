@@ -2,7 +2,6 @@
 
 @section('style')
 <link rel="stylesheet" href="/css/textbox.css">
-
 @stop
 
 @section('content')
@@ -11,11 +10,13 @@
 	<img src="/images/Borq.png" alt="borq logo"/>
 </div>
 
+
 <div id="instructions">
 	<a href="" span style="cursor: pointer" id="myModal2">
 	<img src="/images/instructions.png">
 	</a></span>
 </div>
+
 
 <div class="container col-sm-12" id="game_box" style="display: none;">
 	<div class="row">
@@ -23,12 +24,18 @@
 
 			<div class="row">
 				<div id="location" class="col-sm-6">
-					<label class="label" id="location_label" for="location">Location</label></br>
+					<div id="label_location">
+					<img src="/images/location4.png" width="225" height="55"/>
+					</div>
+					<!-- <label class="label" id="location_label" for="location">Location</label></br> -->
 					<input id="current_location" disabled>
 				</div>
 
 				<div id="health" class="col-sm-6">
-					<label class="label" for="health">Health</label>
+					<div id="label_health">
+						<img src="/images/health4.png" width="225" height="50"/>
+					</div>
+					<!-- <label class="label" for="health">Health</label> -->
 					<div id="health_bar"></div>
 				</div>
 
@@ -37,7 +44,10 @@
 			<div class='row'>
 				<div class='form-group col-sm-12'>
 					<div name="items" for="items">
-						<label class="label" class="form-group" id="item_label" name="items">Inventory</label>
+						<div id="label_items">
+						<img src="/images/inventory4.png" width="225" height="55" />
+						</div>
+						<!-- <label class="label" class="form-group" id="item_label" name="items">Inventory</label> -->
 						<div id='items'></div>
 					</div>
 				</div>
@@ -90,6 +100,21 @@
 <script>
 
 $(document).ready(function() {
+	// REVISED INSTRUCTION MODAL AS AN IMAGE
+	$('.image-popup-no-margins').magnificPopup({
+		type: 'image',
+		closeOnContentClick: true,
+		closeBtnInside: false,
+		fixedContentPos: true,
+		mainClass: 'mfp-no-margins mfp-with-zoom', // class to remove default margin from left and right side
+		image: {
+			verticalFit: true
+		},
+		zoom: {
+			enabled: true,
+			duration: 300 // don't foget to change the duration also in CSS
+		}
+	});
 	// Instruction Modal
 	var myModal2;
 	myModal2 = $('#myModal2').jBox('Modal', {
