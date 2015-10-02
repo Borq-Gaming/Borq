@@ -44,7 +44,6 @@
 		});
 		var firstAction; // to make global
 		function userInput() {
-			console.log("testtest");
 			var input = $("#RealTextbox").val();
 			console.log(input);
 			var selectInput = input.split (' ');
